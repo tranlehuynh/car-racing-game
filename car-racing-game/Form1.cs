@@ -75,10 +75,51 @@ namespace car_racing_game
                 ptbEnemyCar4.Location = new Point(x, 0);
             }
             else { ptbEnemyCar4.Top += speed; }
+            if (ptbEnemyCar4.Top > 400)
+            {
+                x = rand.Next(300, 350);
+                ptbEnemyCar4.Location = new Point(x, 0);
+            }
+            else { ptbEnemyCar4.Top += speed; }
+            if (ptbEnemyCar4.Top > 400)
+            {
+                x = rand.Next(300, 350);
+                ptbEnemyCar4.Location = new Point(x, 0);
+            }
+            else { ptbEnemyCar4.Top += speed; }
+            if (ptbEnemyCar4.Top > 400)
+            {
+                x = rand.Next(300, 350);
+                ptbEnemyCar4.Location = new Point(x, 0);
+            }
+            else { ptbEnemyCar4.Top += speed; }
+            if (ptbEnemyCar4.Top > 400)
+            {
+                x = rand.Next(300, 350);
+                ptbEnemyCar4.Location = new Point(x, 0);
+            }
+            else { ptbEnemyCar4.Top += speed; }
+            if (ptbEnemyCar4.Top > 400)
+            {
+                x = rand.Next(300, 350);
+                ptbEnemyCar4.Location = new Point(x, 0);
+            }
+            else { ptbEnemyCar4.Top += speed; }
+            if (ptbEnemyCar4.Top > 400)
+            {
+                x = rand.Next(300, 350);
+                ptbEnemyCar4.Location = new Point(x, 0);
+            }
+            else { ptbEnemyCar4.Top += speed; }
+            if (ptbEnemyCar4.Top > 400)
+            {
+                x = rand.Next(300, 350);
+                ptbEnemyCar4.Location = new Point(x, 0);
+            }
+            else { ptbEnemyCar4.Top += speed; }
         }
         private void Form1_Load(object sender, EventArgs e)
-        {            
-            
+        { 
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
