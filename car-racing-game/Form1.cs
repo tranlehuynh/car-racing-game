@@ -89,6 +89,12 @@ namespace car_racing_game
         {
             getTime(8);
             enemyCar(8);
+            if (ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar1.Bounds) || ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar2.Bounds)
+                || ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar3.Bounds) || ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar4.Bounds)
+                || ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar5.Bounds))
+            {
+                timer1.Enabled = false;
+            }
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
