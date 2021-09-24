@@ -61,11 +61,11 @@ namespace car_racing_game
         {
             if (e.KeyCode == Keys.A)
             {
-                mainCar.move(backGround, true);
+                mainCar.move(backGround, true); // tham số thứ 2 = true nếu xe rẽ trái
             }
             if (e.KeyCode == Keys.D)
             {
-                mainCar.move(backGround, false);
+                mainCar.move(backGround, false); // và ngược lại nếu xe rẽ phải
             }
         }
     }

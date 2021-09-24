@@ -8,7 +8,7 @@ namespace car_racing_game
 {
     class Car
     {
-        public System.Windows.Forms.PictureBox pb;
+        public System.Windows.Forms.PictureBox pb; //pictureBox của Car
         public int speed;
         public Car(System.Windows.Forms.PictureBox pictureBox, int speed) 
         {
@@ -20,8 +20,8 @@ namespace car_racing_game
     {
         public MainCar(System.Windows.Forms.PictureBox pictureBox, int speed, System.Drawing.Rectangle rectangle, BG bG) : base(pictureBox, speed)
         {
-            pb.Top = rectangle.Bottom - pb.Height;
-            pb.Left = bG.lane[bG.lane.Length/2];
+            pb.Top = rectangle.Bottom - pb.Height; // gán top cho mainCar nằm dưới cùng
+            pb.Left = bG.lane[bG.lane.Length/2]; // Khởi tạo xe tại lane giữa
         }
 
 
@@ -74,15 +74,15 @@ namespace car_racing_game
                     pb.Top = enemy.pb.Top - 2 * pb.Height;
                 }
             }
-            if (temp < bG.lane.Length/2)
+            if (temp < bG.lane.Length/2) // nếu xe đi ngược chiều
             {
-                this.speed = random.Next(bG.speed, (int)(3.0 / 2.0 * bG.speed));
-                pb.Image.RotateFlip(System.Drawing.RotateFlipType.RotateNoneFlipY);
+                this.speed = random.Next(bG.speed, (int)(3.0 / 2.0 * bG.speed)); // tốc độ sẽ random trong khoảng {backGround speed, 1,5 lần backGround speed}
+                pb.Image.RotateFlip(System.Drawing.RotateFlipType.RotateNoneFlipY); // lật hình xe nếu enemyCar đi lane ngược lại
                 nguoc = true;
             }
             else
             {
-                nguoc = false;
+                nguoc = false; // Chỗ này hơi thừa, nhưng cứ để đây cho chắc ăn
                 this.speed = random.Next((bG.speed / 2),bG.speed);
             }
         }
@@ -93,10 +93,10 @@ namespace car_racing_game
                 foreach (var y in enemyCars)
                 {
                     if (item.Equals(y))
-                        continue;
+                        continue; // Kiểm tra trùng xe
                     if (item.pb.Bounds.IntersectsWith(y.pb.Bounds))
                     {
-                        item.speed = y.speed;
+                        item.speed = y.speed; // Nếu trùng thì hãm speed 2 xe bằng speed xe nào thấp hơn
                     }
                 }
             }
@@ -113,7 +113,7 @@ namespace car_racing_game
                     available = true;
                     if (nguoc)
                     {
-                        pb.Image.RotateFlip(System.Drawing.RotateFlipType.RotateNoneFlipY);
+                        pb.Image.RotateFlip(System.Drawing.RotateFlipType.RotateNoneFlipY); //Nếu enemyCar ngược chiều thì xoay lại cho hàm makeEnemy dễ xử lý
                         nguoc = false;
                     }
                 }
