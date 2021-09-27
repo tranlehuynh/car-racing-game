@@ -10,7 +10,7 @@ namespace car_racing_game
     {
         public System.Windows.Forms.PictureBox pb; //pictureBox của Car
         public int speed;
-        public Car(System.Windows.Forms.PictureBox pictureBox, int speed) 
+        public Car(System.Windows.Forms.PictureBox pictureBox, int speed)
         {
             this.pb = pictureBox;
             this.speed = speed;
@@ -21,7 +21,7 @@ namespace car_racing_game
         public MainCar(System.Windows.Forms.PictureBox pictureBox, int speed, System.Drawing.Rectangle rectangle, BG bG) : base(pictureBox, speed)
         {
             pb.Top = rectangle.Bottom - pb.Height; // gán top cho mainCar nằm dưới cùng
-            pb.Left = bG.lane[bG.lane.Length/2]; // Khởi tạo xe tại lane giữa
+            pb.Left = bG.lane[bG.lane.Length / 2]; // Khởi tạo xe tại lane giữa
         }
 
 
@@ -31,19 +31,20 @@ namespace car_racing_game
             if (left)
             {
                 if (pb.Left != bG.lane[0])
-                pb.Left = bG.lane[vt - 1];
+                    pb.Left = bG.lane[vt - 1];
             }
             else
             {
-                if (pb.Left != bG.lane[bG.lane.Length-1])
-                pb.Left = bG.lane[vt + 1];
+                if (pb.Left != bG.lane[bG.lane.Length - 1])
+                    pb.Left = bG.lane[vt + 1];
             }
         }
         public bool vaChamXe(EnemyCar[] enemies)
         {
             foreach (var enemy in enemies)
             {
-                if (this.pb.Bounds.IntersectsWith(enemy.pb.Bounds)) {
+                if (this.pb.Bounds.IntersectsWith(enemy.pb.Bounds))
+                {
                     return true;
                 }
             }
@@ -54,7 +55,7 @@ namespace car_racing_game
     {
         public bool nguoc = false;
         public bool available = true;
-        
+
         public EnemyCar(System.Windows.Forms.PictureBox pictureBox, int speed, BG bG) : base(pictureBox, speed)
         {
             pb.Top = -pb.Height;
@@ -74,7 +75,7 @@ namespace car_racing_game
                     pb.Top = enemy.pb.Top - 2 * pb.Height;
                 }
             }
-            if (temp < bG.lane.Length/2) // nếu xe đi ngược chiều
+            if (temp < bG.lane.Length / 2) // nếu xe đi ngược chiều
             {
                 this.speed = random.Next(bG.speed, (int)(3.0 / 2.0 * bG.speed)); // tốc độ sẽ random trong khoảng {backGround speed, 1,5 lần backGround speed}
                 pb.Image.RotateFlip(System.Drawing.RotateFlipType.RotateNoneFlipY); // lật hình xe nếu enemyCar đi lane ngược lại
@@ -83,7 +84,7 @@ namespace car_racing_game
             else
             {
                 nguoc = false; // Chỗ này hơi thừa, nhưng cứ để đây cho chắc ăn
-                this.speed = random.Next((bG.speed / 2),bG.speed);
+                this.speed = random.Next((bG.speed / 2), bG.speed);
             }
         }
         public static void EnemyCarVsEnemyCar(EnemyCar[] enemyCars)

@@ -15,11 +15,14 @@ namespace car_racing_game
         public Form1()
         {
             InitializeComponent();
+            lbGameOver.Visible = false;
         }
 
         string path;
+        int coinTemp;
         Random rand = new Random();
         int x, y;
+
         void getTime(int speed)
         {
             if (pictureBox1.Top >= 440) {pictureBox1.Top = -2;}
@@ -50,51 +53,146 @@ namespace car_racing_game
         {
             if (ptbEnemyCar1.Top > 400)
             {
-                x = rand.Next(0, 300);
+                x = rand.Next(0, 150);
                 ptbEnemyCar1.Location = new Point(x, 0);
             }
             else { ptbEnemyCar1.Top += speed; }
 
             if (ptbEnemyCar2.Top > 400)
             {
-                x = rand.Next(0, 300);
+                x = rand.Next(150, 250);
                 ptbEnemyCar2.Location = new Point(x, 0);
             }
             else { ptbEnemyCar2.Top += speed; }
 
             if (ptbEnemyCar3.Top > 400)
             {
-                x = rand.Next(180, 350);
+                x = rand.Next(270, 350);
                 ptbEnemyCar3.Location = new Point(x, 0);
             }
             else { ptbEnemyCar3.Top += speed; }
 
             if (ptbEnemyCar4.Top > 400)
             {
-                x = rand.Next(300, 350);
+                x = rand.Next(370, 450);
                 ptbEnemyCar4.Location = new Point(x, 0);
             }
             else { ptbEnemyCar4.Top += speed; }
             if (ptbEnemyCar5.Top > 400)
             {
-                x = rand.Next(350, 500);
+                x = rand.Next(470, 570);
                 ptbEnemyCar5.Location = new Point(x, 0);
             }
             else { ptbEnemyCar5.Top += speed; }
         }
+
+        void coin(int speed)
+        {
+            if (coin1.Top > 400)
+            {
+                x = rand.Next(0, 150);
+                coin1.Location = new Point(x, 0);
+            }
+            else { coin1.Top += speed; }
+
+            if (coin2.Top > 400)
+            {
+                x = rand.Next(50, 300);
+                coin2.Location = new Point(x, 0);
+            }
+            else { coin2.Top += speed; }
+
+            if (coin3.Top > 400)
+            {
+                x = rand.Next(100, 450);
+                coin3.Location = new Point(x, 0);
+            }
+            else { coin3.Top += speed; }
+
+            if (coin4.Top > 400)
+            {
+                x = rand.Next(150, 550);
+                coin4.Location = new Point(x, 0);
+            }
+            else { coin4.Top += speed; }
+        }
+        void gameOver()
+        {
+            if(ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar1.Bounds))
+            {
+                timer1.Enabled = false;
+                lbGameOver.Visible = true;
+            }
+            if (ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar2.Bounds))
+            {
+                timer1.Enabled = false;
+                lbGameOver.Visible = true;
+            }
+            if (ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar3.Bounds))
+            {
+                timer1.Enabled = false;
+                lbGameOver.Visible = true;
+            }
+            if (ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar4.Bounds))
+            {
+                timer1.Enabled = false;
+                lbGameOver.Visible = true;
+            }
+            if (ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar5.Bounds))
+            {
+                timer1.Enabled = false;
+                lbGameOver.Visible = true;
+            }
+        }
+
+        void collectionCoin()
+        {
+            if (ptbMainCar.Bounds.IntersectsWith(coin1.Bounds))
+            {
+                coinTemp++;
+                numberOfCoin.Text = "Coin = " + coinTemp.ToString();
+                x = rand.Next(0, 150);
+                coin1.Location = new Point(x, 0);
+            }
+            if (ptbMainCar.Bounds.IntersectsWith(coin2.Bounds))
+            {
+                coinTemp++;
+                numberOfCoin.Text = "Coin = " + coinTemp.ToString();
+                x = rand.Next(0, 150);
+                coin2.Location = new Point(x, 0);
+            }
+            if (ptbMainCar.Bounds.IntersectsWith(coin3.Bounds))
+            {
+                coinTemp++;
+                numberOfCoin.Text = "Coin = " + coinTemp.ToString();
+                x = rand.Next(0, 150);
+                coin3.Location = new Point(x, 0);
+            }
+            if (ptbMainCar.Bounds.IntersectsWith(coin4.Bounds))
+            {
+                coinTemp++;
+                numberOfCoin.Text = "Coin = " + coinTemp.ToString();
+                x = rand.Next(0, 150);
+                coin4.Location = new Point(x, 0);
+            }
+        }
         private void Form1_Load(object sender, EventArgs e)
         { 
+
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
             getTime(8);
             enemyCar(8);
-            if (ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar1.Bounds) || ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar2.Bounds)
-                || ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar3.Bounds) || ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar4.Bounds)
-                || ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar5.Bounds))
-            {
-                timer1.Enabled = false;
-            }
+            gameOver();
+            coin(8);
+            collectionCoin();
+            ////if (ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar1.Bounds) || ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar2.Bounds)
+            ////    || ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar3.Bounds) || ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar4.Bounds)
+            ////    || ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar5.Bounds))
+            //{
+            //    timer1.Enabled = false;
+            //}
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)

@@ -46,6 +46,12 @@ namespace car_racing_game
             this.ptbEnemyCar4 = new System.Windows.Forms.PictureBox();
             this.ptbEnemyCar2 = new System.Windows.Forms.PictureBox();
             this.ptbEnemyCar5 = new System.Windows.Forms.PictureBox();
+            this.lbGameOver = new System.Windows.Forms.Label();
+            this.coin1 = new System.Windows.Forms.PictureBox();
+            this.coin2 = new System.Windows.Forms.PictureBox();
+            this.coin3 = new System.Windows.Forms.PictureBox();
+            this.coin4 = new System.Windows.Forms.PictureBox();
+            this.numberOfCoin = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -60,6 +66,10 @@ namespace car_racing_game
             ((System.ComponentModel.ISupportInitialize)(this.ptbEnemyCar4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEnemyCar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEnemyCar5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin4)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -75,7 +85,6 @@ namespace car_racing_game
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 20;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // pictureBox2
@@ -114,7 +123,7 @@ namespace car_racing_game
             this.ptbMainCar.Image = ((System.Drawing.Image)(resources.GetObject("ptbMainCar.Image")));
             this.ptbMainCar.Location = new System.Drawing.Point(361, 416);
             this.ptbMainCar.Name = "ptbMainCar";
-            this.ptbMainCar.Size = new System.Drawing.Size(52, 87);
+            this.ptbMainCar.Size = new System.Drawing.Size(46, 74);
             this.ptbMainCar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbMainCar.TabIndex = 1;
             this.ptbMainCar.TabStop = false;
@@ -165,7 +174,7 @@ namespace car_racing_game
             this.ptbEnemyCar1.Image = ((System.Drawing.Image)(resources.GetObject("ptbEnemyCar1.Image")));
             this.ptbEnemyCar1.Location = new System.Drawing.Point(92, 177);
             this.ptbEnemyCar1.Name = "ptbEnemyCar1";
-            this.ptbEnemyCar1.Size = new System.Drawing.Size(52, 87);
+            this.ptbEnemyCar1.Size = new System.Drawing.Size(46, 74);
             this.ptbEnemyCar1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbEnemyCar1.TabIndex = 1;
             this.ptbEnemyCar1.TabStop = false;
@@ -176,7 +185,7 @@ namespace car_racing_game
             this.ptbEnemyCar3.Image = ((System.Drawing.Image)(resources.GetObject("ptbEnemyCar3.Image")));
             this.ptbEnemyCar3.Location = new System.Drawing.Point(512, 50);
             this.ptbEnemyCar3.Name = "ptbEnemyCar3";
-            this.ptbEnemyCar3.Size = new System.Drawing.Size(52, 87);
+            this.ptbEnemyCar3.Size = new System.Drawing.Size(39, 71);
             this.ptbEnemyCar3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbEnemyCar3.TabIndex = 1;
             this.ptbEnemyCar3.TabStop = false;
@@ -187,7 +196,7 @@ namespace car_racing_game
             this.ptbEnemyCar4.Image = ((System.Drawing.Image)(resources.GetObject("ptbEnemyCar4.Image")));
             this.ptbEnemyCar4.Location = new System.Drawing.Point(647, 177);
             this.ptbEnemyCar4.Name = "ptbEnemyCar4";
-            this.ptbEnemyCar4.Size = new System.Drawing.Size(52, 87);
+            this.ptbEnemyCar4.Size = new System.Drawing.Size(43, 64);
             this.ptbEnemyCar4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbEnemyCar4.TabIndex = 1;
             this.ptbEnemyCar4.TabStop = false;
@@ -198,7 +207,7 @@ namespace car_racing_game
             this.ptbEnemyCar2.Image = ((System.Drawing.Image)(resources.GetObject("ptbEnemyCar2.Image")));
             this.ptbEnemyCar2.Location = new System.Drawing.Point(289, 114);
             this.ptbEnemyCar2.Name = "ptbEnemyCar2";
-            this.ptbEnemyCar2.Size = new System.Drawing.Size(52, 87);
+            this.ptbEnemyCar2.Size = new System.Drawing.Size(43, 70);
             this.ptbEnemyCar2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbEnemyCar2.TabIndex = 1;
             this.ptbEnemyCar2.TabStop = false;
@@ -207,12 +216,79 @@ namespace car_racing_game
             // 
             this.ptbEnemyCar5.BackColor = System.Drawing.Color.Gray;
             this.ptbEnemyCar5.Image = ((System.Drawing.Image)(resources.GetObject("ptbEnemyCar5.Image")));
-            this.ptbEnemyCar5.Location = new System.Drawing.Point(666, 355);
+            this.ptbEnemyCar5.Location = new System.Drawing.Point(670, 346);
             this.ptbEnemyCar5.Name = "ptbEnemyCar5";
-            this.ptbEnemyCar5.Size = new System.Drawing.Size(52, 87);
+            this.ptbEnemyCar5.Size = new System.Drawing.Size(39, 69);
             this.ptbEnemyCar5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbEnemyCar5.TabIndex = 1;
             this.ptbEnemyCar5.TabStop = false;
+            // 
+            // lbGameOver
+            // 
+            this.lbGameOver.AutoSize = true;
+            this.lbGameOver.BackColor = System.Drawing.Color.Maroon;
+            this.lbGameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbGameOver.ForeColor = System.Drawing.SystemColors.Info;
+            this.lbGameOver.Location = new System.Drawing.Point(279, 228);
+            this.lbGameOver.Name = "lbGameOver";
+            this.lbGameOver.Size = new System.Drawing.Size(272, 55);
+            this.lbGameOver.TabIndex = 2;
+            this.lbGameOver.Text = "Game Over";
+            // 
+            // coin1
+            // 
+            this.coin1.BackColor = System.Drawing.Color.Gray;
+            this.coin1.Image = ((System.Drawing.Image)(resources.GetObject("coin1.Image")));
+            this.coin1.Location = new System.Drawing.Point(159, 334);
+            this.coin1.Name = "coin1";
+            this.coin1.Size = new System.Drawing.Size(33, 33);
+            this.coin1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.coin1.TabIndex = 1;
+            this.coin1.TabStop = false;
+            // 
+            // coin2
+            // 
+            this.coin2.BackColor = System.Drawing.Color.Gray;
+            this.coin2.Image = ((System.Drawing.Image)(resources.GetObject("coin2.Image")));
+            this.coin2.Location = new System.Drawing.Point(173, 75);
+            this.coin2.Name = "coin2";
+            this.coin2.Size = new System.Drawing.Size(33, 33);
+            this.coin2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.coin2.TabIndex = 1;
+            this.coin2.TabStop = false;
+            // 
+            // coin3
+            // 
+            this.coin3.BackColor = System.Drawing.Color.Gray;
+            this.coin3.Image = ((System.Drawing.Image)(resources.GetObject("coin3.Image")));
+            this.coin3.Location = new System.Drawing.Point(500, 334);
+            this.coin3.Name = "coin3";
+            this.coin3.Size = new System.Drawing.Size(33, 33);
+            this.coin3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.coin3.TabIndex = 1;
+            this.coin3.TabStop = false;
+            // 
+            // coin4
+            // 
+            this.coin4.BackColor = System.Drawing.Color.Gray;
+            this.coin4.Image = ((System.Drawing.Image)(resources.GetObject("coin4.Image")));
+            this.coin4.Location = new System.Drawing.Point(700, 88);
+            this.coin4.Name = "coin4";
+            this.coin4.Size = new System.Drawing.Size(33, 33);
+            this.coin4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.coin4.TabIndex = 1;
+            this.coin4.TabStop = false;
+            // 
+            // numberOfCoin
+            // 
+            this.numberOfCoin.AutoSize = true;
+            this.numberOfCoin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numberOfCoin.ForeColor = System.Drawing.Color.Orange;
+            this.numberOfCoin.Location = new System.Drawing.Point(12, 9);
+            this.numberOfCoin.Name = "numberOfCoin";
+            this.numberOfCoin.Size = new System.Drawing.Size(54, 24);
+            this.numberOfCoin.TabIndex = 3;
+            this.numberOfCoin.Text = "Coin:";
             // 
             // Form1
             // 
@@ -220,10 +296,16 @@ namespace car_racing_game
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(803, 523);
+            this.Controls.Add(this.numberOfCoin);
+            this.Controls.Add(this.lbGameOver);
             this.Controls.Add(this.ptbEnemyCar4);
             this.Controls.Add(this.ptbEnemyCar5);
             this.Controls.Add(this.ptbEnemyCar2);
             this.Controls.Add(this.ptbEnemyCar3);
+            this.Controls.Add(this.coin4);
+            this.Controls.Add(this.coin3);
+            this.Controls.Add(this.coin2);
+            this.Controls.Add(this.coin1);
             this.Controls.Add(this.ptbEnemyCar1);
             this.Controls.Add(this.ptbMainCar);
             this.Controls.Add(this.pictureBox7);
@@ -252,7 +334,12 @@ namespace car_racing_game
             ((System.ComponentModel.ISupportInitialize)(this.ptbEnemyCar4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEnemyCar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEnemyCar5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin4)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -273,6 +360,12 @@ namespace car_racing_game
         private System.Windows.Forms.PictureBox ptbEnemyCar4;
         private System.Windows.Forms.PictureBox ptbEnemyCar2;
         private System.Windows.Forms.PictureBox ptbEnemyCar5;
+        private System.Windows.Forms.Label lbGameOver;
+        private System.Windows.Forms.PictureBox coin1;
+        private System.Windows.Forms.PictureBox coin2;
+        private System.Windows.Forms.PictureBox coin3;
+        private System.Windows.Forms.PictureBox coin4;
+        private System.Windows.Forms.Label numberOfCoin;
     }
 }
 
