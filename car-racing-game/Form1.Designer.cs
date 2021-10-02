@@ -52,6 +52,8 @@ namespace car_racing_game
             this.coin3 = new System.Windows.Forms.PictureBox();
             this.coin4 = new System.Windows.Forms.PictureBox();
             this.numberOfCoin = new System.Windows.Forms.Label();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.lbCount = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -85,6 +87,7 @@ namespace car_racing_game
             // timer1
             // 
             this.timer1.Enabled = true;
+            this.timer1.Interval = 25;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // pictureBox2
@@ -227,11 +230,11 @@ namespace car_racing_game
             // 
             this.lbGameOver.AutoSize = true;
             this.lbGameOver.BackColor = System.Drawing.Color.Maroon;
-            this.lbGameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbGameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbGameOver.ForeColor = System.Drawing.SystemColors.Info;
-            this.lbGameOver.Location = new System.Drawing.Point(279, 228);
+            this.lbGameOver.Location = new System.Drawing.Point(234, 210);
             this.lbGameOver.Name = "lbGameOver";
-            this.lbGameOver.Size = new System.Drawing.Size(272, 55);
+            this.lbGameOver.Size = new System.Drawing.Size(339, 69);
             this.lbGameOver.TabIndex = 2;
             this.lbGameOver.Text = "Game Over";
             // 
@@ -290,12 +293,30 @@ namespace car_racing_game
             this.numberOfCoin.TabIndex = 3;
             this.numberOfCoin.Text = "Coin:";
             // 
+            // timer2
+            // 
+            this.timer2.Enabled = true;
+            this.timer2.Interval = 500;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // lbCount
+            // 
+            this.lbCount.AutoSize = true;
+            this.lbCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCount.ForeColor = System.Drawing.Color.PeachPuff;
+            this.lbCount.Location = new System.Drawing.Point(348, 177);
+            this.lbCount.Name = "lbCount";
+            this.lbCount.Size = new System.Drawing.Size(124, 135);
+            this.lbCount.TabIndex = 4;
+            this.lbCount.Text = "4";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(803, 523);
+            this.Controls.Add(this.lbCount);
             this.Controls.Add(this.numberOfCoin);
             this.Controls.Add(this.lbGameOver);
             this.Controls.Add(this.ptbEnemyCar4);
@@ -317,7 +338,9 @@ namespace car_racing_game
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -366,6 +389,8 @@ namespace car_racing_game
         private System.Windows.Forms.PictureBox coin3;
         private System.Windows.Forms.PictureBox coin4;
         private System.Windows.Forms.Label numberOfCoin;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Label lbCount;
     }
 }
 

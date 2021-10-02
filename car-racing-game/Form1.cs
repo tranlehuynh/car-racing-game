@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System;
+using System.Media;
+
 namespace car_racing_game
 {
     public partial class Form1 : Form
@@ -16,6 +17,7 @@ namespace car_racing_game
         {
             InitializeComponent();
             lbGameOver.Visible = false;
+            lbCount.BackColor = System.Drawing.Color.Transparent;
         }
 
         string path;
@@ -120,35 +122,53 @@ namespace car_racing_game
         {
             if(ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar1.Bounds))
             {
+                gameOverSound();
                 timer1.Enabled = false;
                 lbGameOver.Visible = true;
             }
             if (ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar2.Bounds))
             {
+                gameOverSound();
                 timer1.Enabled = false;
                 lbGameOver.Visible = true;
             }
             if (ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar3.Bounds))
             {
+                gameOverSound();
                 timer1.Enabled = false;
                 lbGameOver.Visible = true;
             }
             if (ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar4.Bounds))
             {
+                gameOverSound();
                 timer1.Enabled = false;
                 lbGameOver.Visible = true;
             }
             if (ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar5.Bounds))
             {
+                gameOverSound(); 
                 timer1.Enabled = false;
                 lbGameOver.Visible = true;
             }
         }
 
+        void gameOverSound()
+        {
+            SoundPlayer soundPlayer = new SoundPlayer();
+            soundPlayer.SoundLocation = @"D:\Code\Interface Programing\car-racing-game\car-racing-game\Sound\GameOverSound.wav";
+            soundPlayer.Play();
+        }
+        void soundCoin()
+        {
+            SoundPlayer soundPlayer = new SoundPlayer();
+            soundPlayer.SoundLocation = @"D:\Code\Interface Programing\car-racing-game\car-racing-game\Sound\CoinSound.wav";
+            soundPlayer.Play();
+        }
         void collectionCoin()
         {
             if (ptbMainCar.Bounds.IntersectsWith(coin1.Bounds))
             {
+                soundCoin();
                 coinTemp++;
                 numberOfCoin.Text = "Coin = " + coinTemp.ToString();
                 x = rand.Next(0, 150);
@@ -156,6 +176,7 @@ namespace car_racing_game
             }
             if (ptbMainCar.Bounds.IntersectsWith(coin2.Bounds))
             {
+                soundCoin();
                 coinTemp++;
                 numberOfCoin.Text = "Coin = " + coinTemp.ToString();
                 x = rand.Next(0, 150);
@@ -163,6 +184,7 @@ namespace car_racing_game
             }
             if (ptbMainCar.Bounds.IntersectsWith(coin3.Bounds))
             {
+                soundCoin();
                 coinTemp++;
                 numberOfCoin.Text = "Coin = " + coinTemp.ToString();
                 x = rand.Next(0, 150);
@@ -170,6 +192,7 @@ namespace car_racing_game
             }
             if (ptbMainCar.Bounds.IntersectsWith(coin4.Bounds))
             {
+                soundCoin();
                 coinTemp++;
                 numberOfCoin.Text = "Coin = " + coinTemp.ToString();
                 x = rand.Next(0, 150);
@@ -177,8 +200,8 @@ namespace car_racing_game
             }
         }
         private void Form1_Load(object sender, EventArgs e)
-        { 
-
+        {
+            timer1.Enabled = false;
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -193,6 +216,26 @@ namespace car_racing_game
             //{
             //    timer1.Enabled = false;
             //}
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            SoundPlayer soundPlayer = new SoundPlayer();
+            soundPlayer.SoundLocation = @"D:\Code\Interface Programing\car-racing-game\car-racing-game\Sound\ThemeSong2.wav";
+            soundPlayer.PlayLooping();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            int superTemp; 
+            superTemp = int.Parse(lbCount.Text) - 1;
+            lbCount.Text = superTemp.ToString();
+            if (superTemp == 0)
+            {
+                timer2.Enabled = false;
+                lbCount.Visible = false;
+                timer1.Enabled = true;
+            }
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -222,5 +265,6 @@ namespace car_racing_game
             }
 
         }
+
     }
 }
