@@ -155,13 +155,13 @@ namespace car_racing_game
         void gameOverSound()
         {
             SoundPlayer soundPlayer = new SoundPlayer();
-            soundPlayer.SoundLocation = @"D:\Code\Interface Programing\car-racing-game\car-racing-game\Sound\GameOverSound.wav";
+            soundPlayer.SoundLocation = Application.StartupPath + @"\..\..\Sound\GameOverSound.wav";
             soundPlayer.Play();
         }
         void soundCoin()
         {
             SoundPlayer soundPlayer = new SoundPlayer();
-            soundPlayer.SoundLocation = @"D:\Code\Interface Programing\car-racing-game\car-racing-game\Sound\CoinSound.wav";
+            soundPlayer.SoundLocation = Application.StartupPath + @"\..\..\Sound\CoinSound.wav";
             soundPlayer.Play();
         }
         void collectionCoin()
@@ -221,7 +221,7 @@ namespace car_racing_game
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             SoundPlayer soundPlayer = new SoundPlayer();
-            soundPlayer.SoundLocation = @"D:\Code\Interface Programing\car-racing-game\car-racing-game\Sound\ThemeSong2.wav";
+            soundPlayer.SoundLocation = Application.StartupPath + @"\..\..\Sound\ThemeSong2.wav";
             soundPlayer.PlayLooping();
         }
 

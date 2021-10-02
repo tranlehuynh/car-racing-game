@@ -52,6 +52,8 @@
     <Compile Include="BeginForm.Designer.cs">
       <DependentUpon>BeginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BG.cs" />
+    <Compile Include="Car.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +65,12 @@
     </Compile>
     <Compile Include="InstructionForm.Designer.cs">
       <DependentUpon>InstructionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Map2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Map2.Designer.cs">
+      <DependentUpon>Map2.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,6 +89,9 @@
     <EmbeddedResource Include="InstructionForm.resx">
       <DependentUpon>InstructionForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Map2.resx">
+      <DependentUpon>Map2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -89,6 +100,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -102,6 +114,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red-car.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yellow-car.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

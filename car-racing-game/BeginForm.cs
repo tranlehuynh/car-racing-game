@@ -31,11 +31,11 @@ namespace car_racing_game
         }
 
         SoundPlayer soundPlayer = new SoundPlayer();
-        string soundPath = Application.StartupPath + @"\Sound\";
-        string imagePath = Application.StartupPath + @"\Images\";
+        string soundPath = Application.StartupPath + @"\..\..\Sound\";
+        string imagePath = Application.StartupPath + @"\..\..\Images\";
         private void BeginForm_Load(object sender, EventArgs e)
         {
-            soundPlayer.SoundLocation = @"D:\Code\Interface Programing\car-racing-game\car-racing-game\Sound\ThemeSong2.wav";
+            soundPlayer.SoundLocation = Application.StartupPath + @"\..\..\Sound\ThemeSong2.wav";
             soundPlayer.PlayLooping();
         }
 
