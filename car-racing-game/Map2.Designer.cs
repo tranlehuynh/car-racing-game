@@ -183,9 +183,9 @@
             // 
             this.pbVachDut12.BackColor = System.Drawing.Color.White;
             this.pbVachDut12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbVachDut12.Location = new System.Drawing.Point(238, 389);
+            this.pbVachDut12.Location = new System.Drawing.Point(238, 581);
             this.pbVachDut12.Name = "pbVachDut12";
-            this.pbVachDut12.Size = new System.Drawing.Size(10, 47);
+            this.pbVachDut12.Size = new System.Drawing.Size(10, 83);
             this.pbVachDut12.TabIndex = 29;
             this.pbVachDut12.TabStop = false;
             // 
@@ -193,9 +193,9 @@
             // 
             this.pbVachDut11.BackColor = System.Drawing.Color.White;
             this.pbVachDut11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbVachDut11.Location = new System.Drawing.Point(238, 291);
+            this.pbVachDut11.Location = new System.Drawing.Point(238, 426);
             this.pbVachDut11.Name = "pbVachDut11";
-            this.pbVachDut11.Size = new System.Drawing.Size(10, 47);
+            this.pbVachDut11.Size = new System.Drawing.Size(10, 83);
             this.pbVachDut11.TabIndex = 28;
             this.pbVachDut11.TabStop = false;
             // 
@@ -203,9 +203,9 @@
             // 
             this.pbVachDut10.BackColor = System.Drawing.Color.White;
             this.pbVachDut10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbVachDut10.Location = new System.Drawing.Point(238, 194);
+            this.pbVachDut10.Location = new System.Drawing.Point(238, 295);
             this.pbVachDut10.Name = "pbVachDut10";
-            this.pbVachDut10.Size = new System.Drawing.Size(10, 47);
+            this.pbVachDut10.Size = new System.Drawing.Size(10, 83);
             this.pbVachDut10.TabIndex = 27;
             this.pbVachDut10.TabStop = false;
             // 
@@ -213,9 +213,9 @@
             // 
             this.pbVachDut9.BackColor = System.Drawing.Color.White;
             this.pbVachDut9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbVachDut9.Location = new System.Drawing.Point(238, 99);
+            this.pbVachDut9.Location = new System.Drawing.Point(238, 158);
             this.pbVachDut9.Name = "pbVachDut9";
-            this.pbVachDut9.Size = new System.Drawing.Size(10, 47);
+            this.pbVachDut9.Size = new System.Drawing.Size(10, 83);
             this.pbVachDut9.TabIndex = 26;
             this.pbVachDut9.TabStop = false;
             // 
@@ -223,9 +223,9 @@
             // 
             this.pbVachDut8.BackColor = System.Drawing.Color.White;
             this.pbVachDut8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbVachDut8.Location = new System.Drawing.Point(238, 9);
+            this.pbVachDut8.Location = new System.Drawing.Point(238, 12);
             this.pbVachDut8.Name = "pbVachDut8";
-            this.pbVachDut8.Size = new System.Drawing.Size(10, 46);
+            this.pbVachDut8.Size = new System.Drawing.Size(10, 83);
             this.pbVachDut8.TabIndex = 25;
             this.pbVachDut8.TabStop = false;
             // 
@@ -233,9 +233,9 @@
             // 
             this.pbVachDut7.BackColor = System.Drawing.Color.White;
             this.pbVachDut7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbVachDut7.Location = new System.Drawing.Point(610, 491);
+            this.pbVachDut7.Location = new System.Drawing.Point(610, 723);
             this.pbVachDut7.Name = "pbVachDut7";
-            this.pbVachDut7.Size = new System.Drawing.Size(10, 46);
+            this.pbVachDut7.Size = new System.Drawing.Size(10, 83);
             this.pbVachDut7.TabIndex = 24;
             this.pbVachDut7.TabStop = false;
             // 
@@ -243,9 +243,9 @@
             // 
             this.pbVachDut6.BackColor = System.Drawing.Color.White;
             this.pbVachDut6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbVachDut6.Location = new System.Drawing.Point(610, 390);
+            this.pbVachDut6.Location = new System.Drawing.Point(610, 581);
             this.pbVachDut6.Name = "pbVachDut6";
-            this.pbVachDut6.Size = new System.Drawing.Size(10, 46);
+            this.pbVachDut6.Size = new System.Drawing.Size(10, 83);
             this.pbVachDut6.TabIndex = 23;
             this.pbVachDut6.TabStop = false;
             // 
@@ -253,9 +253,9 @@
             // 
             this.pbVachDut5.BackColor = System.Drawing.Color.White;
             this.pbVachDut5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbVachDut5.Location = new System.Drawing.Point(610, 291);
+            this.pbVachDut5.Location = new System.Drawing.Point(610, 440);
             this.pbVachDut5.Name = "pbVachDut5";
-            this.pbVachDut5.Size = new System.Drawing.Size(10, 46);
+            this.pbVachDut5.Size = new System.Drawing.Size(10, 83);
             this.pbVachDut5.TabIndex = 22;
             this.pbVachDut5.TabStop = false;
             // 
@@ -263,9 +263,9 @@
             // 
             this.pbVachDut4.BackColor = System.Drawing.Color.White;
             this.pbVachDut4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbVachDut4.Location = new System.Drawing.Point(238, 491);
+            this.pbVachDut4.Location = new System.Drawing.Point(238, 723);
             this.pbVachDut4.Name = "pbVachDut4";
-            this.pbVachDut4.Size = new System.Drawing.Size(10, 46);
+            this.pbVachDut4.Size = new System.Drawing.Size(10, 83);
             this.pbVachDut4.TabIndex = 21;
             this.pbVachDut4.TabStop = false;
             // 
@@ -273,9 +273,9 @@
             // 
             this.pbVachDut3.BackColor = System.Drawing.Color.White;
             this.pbVachDut3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbVachDut3.Location = new System.Drawing.Point(610, 195);
+            this.pbVachDut3.Location = new System.Drawing.Point(610, 295);
             this.pbVachDut3.Name = "pbVachDut3";
-            this.pbVachDut3.Size = new System.Drawing.Size(10, 46);
+            this.pbVachDut3.Size = new System.Drawing.Size(10, 83);
             this.pbVachDut3.TabIndex = 20;
             this.pbVachDut3.TabStop = false;
             // 
@@ -283,9 +283,9 @@
             // 
             this.pbVachDut2.BackColor = System.Drawing.Color.White;
             this.pbVachDut2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbVachDut2.Location = new System.Drawing.Point(610, 100);
+            this.pbVachDut2.Location = new System.Drawing.Point(610, 158);
             this.pbVachDut2.Name = "pbVachDut2";
-            this.pbVachDut2.Size = new System.Drawing.Size(10, 46);
+            this.pbVachDut2.Size = new System.Drawing.Size(10, 83);
             this.pbVachDut2.TabIndex = 19;
             this.pbVachDut2.TabStop = false;
             // 
@@ -293,9 +293,9 @@
             // 
             this.pbVachDut1.BackColor = System.Drawing.Color.White;
             this.pbVachDut1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbVachDut1.Location = new System.Drawing.Point(610, 9);
+            this.pbVachDut1.Location = new System.Drawing.Point(610, 12);
             this.pbVachDut1.Name = "pbVachDut1";
-            this.pbVachDut1.Size = new System.Drawing.Size(10, 46);
+            this.pbVachDut1.Size = new System.Drawing.Size(10, 83);
             this.pbVachDut1.TabIndex = 18;
             this.pbVachDut1.TabStop = false;
             // 
@@ -305,7 +305,7 @@
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Location = new System.Drawing.Point(419, -9);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(21, 561);
+            this.pictureBox1.Size = new System.Drawing.Size(21, 847);
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
             // 
@@ -315,7 +315,7 @@
             this.pictureBox13.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBox13.Location = new System.Drawing.Point(0, 0);
             this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(57, 545);
+            this.pictureBox13.Size = new System.Drawing.Size(57, 818);
             this.pictureBox13.TabIndex = 12;
             this.pictureBox13.TabStop = false;
             // 
@@ -325,7 +325,7 @@
             this.pictureBox12.Dock = System.Windows.Forms.DockStyle.Right;
             this.pictureBox12.Location = new System.Drawing.Point(776, 0);
             this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(57, 545);
+            this.pictureBox12.Size = new System.Drawing.Size(57, 818);
             this.pictureBox12.TabIndex = 11;
             this.pictureBox12.TabStop = false;
             // 
@@ -335,7 +335,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(833, 545);
+            this.ClientSize = new System.Drawing.Size(833, 818);
             this.Controls.Add(this.pbEnemyCar1);
             this.Controls.Add(this.pbEnemyCar2);
             this.Controls.Add(this.pbEnemyCar4);

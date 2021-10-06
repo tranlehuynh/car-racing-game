@@ -10,14 +10,12 @@ namespace car_racing_game
     {
         public int speed = 0;
         public System.Windows.Forms.PictureBox[] VachDut;
-        public System.Windows.Forms.PictureBox[] VachLien;
         public int[] lane;
 
-        public BG(int speed, System.Windows.Forms.PictureBox[] vachDut, System.Windows.Forms.PictureBox[] vachLien, int[] lane)
+        public BG(int speed, System.Windows.Forms.PictureBox[] vachDut, int[] lane)
         {
             this.speed = speed;
             this.VachDut = vachDut;
-            this.VachLien = vachLien;
             this.lane = lane;
         }
         public void move(System.Windows.Forms.PictureBox pb, System.Drawing.Rectangle clientRec)

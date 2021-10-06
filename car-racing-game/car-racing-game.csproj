@@ -66,6 +66,12 @@
     <Compile Include="InstructionForm.Designer.cs">
       <DependentUpon>InstructionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Map1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Map1.Designer.cs">
+      <DependentUpon>Map1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Map2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InstructionForm.resx">
       <DependentUpon>InstructionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Map1.resx">
+      <DependentUpon>Map1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Map2.resx">
       <DependentUpon>Map2.cs</DependentUpon>
@@ -120,6 +129,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\yellow-car.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\police-car.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white-car.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

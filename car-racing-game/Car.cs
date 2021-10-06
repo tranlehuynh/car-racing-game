@@ -91,11 +91,13 @@ namespace car_racing_game
         {
             foreach (var item in enemyCars)
             {
+                System.Drawing.Rectangle rectangle = item.pb.Bounds;
+                rectangle.Height = rectangle.Height * 2;
                 foreach (var y in enemyCars)
                 {
                     if (item.Equals(y))
                         continue; // Kiểm tra trùng xe
-                    if (item.pb.Bounds.IntersectsWith(y.pb.Bounds))
+                    if (rectangle.IntersectsWith(y.pb.Bounds))
                     {
                         item.speed = y.speed; // Nếu trùng thì hãm speed 2 xe bằng speed xe nào thấp hơn
                     }

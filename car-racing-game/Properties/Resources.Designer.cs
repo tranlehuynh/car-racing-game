@@ -63,9 +63,29 @@ namespace car_racing_game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap police_car {
+            get {
+                object obj = ResourceManager.GetObject("police-car", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap red_car {
             get {
                 object obj = ResourceManager.GetObject("red-car", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap white_car {
+            get {
+                object obj = ResourceManager.GetObject("white-car", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

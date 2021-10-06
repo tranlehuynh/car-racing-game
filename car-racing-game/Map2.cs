@@ -16,12 +16,13 @@ namespace car_racing_game
         BG backGround; //Gồm lane và vạch kẻ đường đã thiết kế sẵn
         MainCar mainCar;
         EnemyCar[] enemies; //enemies này là tập hợp của các enemyCar
-        public Map2()
+        PictureBox thief;
+
+        public Map2(bool mode)
         {
             InitializeComponent();
             // Hàm BG với tham số (speed của map, mảng các vạch đứt trong map đã được thiết kế sẵn, mảng các vạch liền, mảng các toạ độ X của từng lane dựa vào toạ độ này để xác định lane cho Car)
             backGround = new BG(5, new PictureBox[] { pbVachDut1, pbVachDut2, pbVachDut3, pbVachDut4, pbVachDut5, pbVachDut6, pbVachDut7, pbVachDut8, pbVachDut9, pbVachDut10, pbVachDut11, pbVachDut12 }
-            , new PictureBox[] { pictureBox1 } // Vạch liền
             , new int[] { 112, 302, 492, 672 }); // left của từng lane
             mainCar = new MainCar(pbMainCar, 0, ClientRectangle, backGround); // Hàm khởi tạo cần pictureBox của mainCar
             EnemyCar enemyCar1 = new EnemyCar(pbEnemyCar1, backGround.speed, backGround); // EnemyCar cần pictureBox của enemyCar, speed của map và đối tượng backGround (hiện tại trong code đang là backGround thiết kế với 4 lane)
@@ -29,6 +30,10 @@ namespace car_racing_game
             EnemyCar enemyCar3 = new EnemyCar(pbEnemyCar3, backGround.speed, backGround);
             EnemyCar enemyCar4 = new EnemyCar(pbEnemyCar4, backGround.speed, backGround);
             enemies = new EnemyCar[] { enemyCar1, enemyCar2, enemyCar3, enemyCar4 }; //Thêm các enemyCar vào tập hợp enemies để dễ kiểm soát
+            if (mode == true)
+            {
+                //
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
