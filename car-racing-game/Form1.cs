@@ -19,12 +19,12 @@ namespace car_racing_game
             lbGameOver.Visible = false;
             lbCount.BackColor = System.Drawing.Color.Transparent;
         }
-
-        string path;
+        #region
+        string path = Application.StartupPath + @"\Images\";
         int coinTemp;
+        int x;
         Random rand = new Random();
-        int x, y;
-
+        #endregion
         void getTime(int speed)
         {
             if (pictureBox1.Top >= 440) {pictureBox1.Top = -2;}
@@ -55,35 +55,50 @@ namespace car_racing_game
         {
             if (ptbEnemyCar1.Top > 400)
             {
-                x = rand.Next(0, 150);
-                ptbEnemyCar1.Location = new Point(x, 0);
+                do
+                {
+                    x = rand.Next(0, 150);
+                    ptbEnemyCar1.Location = new Point(x, 0);
+                } while (ptbEnemyCar1.Bounds.IntersectsWith(coin1.Bounds));
             }
             else { ptbEnemyCar1.Top += speed; }
 
             if (ptbEnemyCar2.Top > 400)
             {
-                x = rand.Next(150, 250);
-                ptbEnemyCar2.Location = new Point(x, 0);
+                do
+                {
+                    x = rand.Next(170, 250);
+                    ptbEnemyCar2.Location = new Point(x, 0);
+                } while (ptbEnemyCar2.Bounds.IntersectsWith(coin2.Bounds));
             }
             else { ptbEnemyCar2.Top += speed; }
 
             if (ptbEnemyCar3.Top > 400)
             {
-                x = rand.Next(270, 350);
-                ptbEnemyCar3.Location = new Point(x, 0);
+                do
+                {
+                    x = rand.Next(270, 350);
+                    ptbEnemyCar3.Location = new Point(x, 0);
+                } while (ptbEnemyCar3.Bounds.IntersectsWith(coin3.Bounds));
             }
             else { ptbEnemyCar3.Top += speed; }
 
             if (ptbEnemyCar4.Top > 400)
             {
-                x = rand.Next(370, 450);
-                ptbEnemyCar4.Location = new Point(x, 0);
+                do
+                {
+                    x = rand.Next(370, 450);
+                    ptbEnemyCar4.Location = new Point(x, 0);
+                } while (ptbEnemyCar4.Bounds.IntersectsWith(coin4.Bounds) || ptbEnemyCar4.Bounds.IntersectsWith(coin3.Bounds));
             }
             else { ptbEnemyCar4.Top += speed; }
             if (ptbEnemyCar5.Top > 400)
             {
-                x = rand.Next(470, 570);
-                ptbEnemyCar5.Location = new Point(x, 0);
+                do
+                {
+                    x = rand.Next(470, 570);
+                    ptbEnemyCar5.Location = new Point(x, 0);
+                } while (ptbEnemyCar5.Bounds.IntersectsWith(coin4.Bounds) || ptbEnemyCar5.Bounds.IntersectsWith(coin3.Bounds));
             }
             else { ptbEnemyCar5.Top += speed; }
         }
@@ -92,31 +107,94 @@ namespace car_racing_game
         {
             if (coin1.Top > 400)
             {
-                x = rand.Next(0, 150);
-                coin1.Location = new Point(x, 0);
+                do
+                {
+                    x = rand.Next(0, 150);
+                    coin1.Location = new Point(x, 0);
+                } while (coin1.Bounds.IntersectsWith(ptbEnemyCar1.Bounds));
             }
             else { coin1.Top += speed; }
 
             if (coin2.Top > 400)
             {
-                x = rand.Next(50, 300);
-                coin2.Location = new Point(x, 0);
+                do
+                {
+                    x = rand.Next(170, 250);
+                    coin2.Location = new Point(x, 0);
+                } while (coin2.Bounds.IntersectsWith(ptbEnemyCar2.Bounds));
             }
             else { coin2.Top += speed; }
 
             if (coin3.Top > 400)
             {
-                x = rand.Next(100, 450);
-                coin3.Location = new Point(x, 0);
+                do
+                {
+                    x = rand.Next(270, 350);
+                    coin3.Location = new Point(x, 0);
+                } while (coin3.Bounds.IntersectsWith(ptbEnemyCar3.Bounds) || coin3.Bounds.IntersectsWith(ptbEnemyCar2.Bounds));
             }
             else { coin3.Top += speed; }
 
             if (coin4.Top > 400)
             {
-                x = rand.Next(150, 550);
-                coin4.Location = new Point(x, 0);
+                do
+                {
+                    x = rand.Next(360, 570);
+                    coin4.Location = new Point(x, 0);
+                } while (coin4.Bounds.IntersectsWith(ptbEnemyCar4.Bounds) || coin4.Bounds.IntersectsWith(ptbEnemyCar5.Bounds));
             }
             else { coin4.Top += speed; }
+        }
+
+        void collectionCoin()
+        {
+            if (ptbMainCar.Bounds.IntersectsWith(coin1.Bounds))
+            {
+                soundCoin();
+                coinTemp++;
+                numberOfCoin.Text = "Coin = " + coinTemp.ToString();
+                do
+                {
+                    x = rand.Next(0, 150);
+                    coin1.Location = new Point(x, 0);
+                } while (coin1.Bounds.IntersectsWith(ptbEnemyCar1.Bounds));
+            }
+
+            if (ptbMainCar.Bounds.IntersectsWith(coin2.Bounds))
+            {
+                soundCoin();
+                coinTemp++;
+                numberOfCoin.Text = "Coin = " + coinTemp.ToString();
+                do
+                {
+                    x = rand.Next(170, 250);
+                    coin2.Location = new Point(x, 0);
+                } while (coin2.Bounds.IntersectsWith(ptbEnemyCar2.Bounds));
+            }
+
+            if (ptbMainCar.Bounds.IntersectsWith(coin3.Bounds))
+            {
+                soundCoin();
+                coinTemp++;
+                numberOfCoin.Text = "Coin = " + coinTemp.ToString();
+                do
+                {
+                    x = rand.Next(270, 350);
+                    coin3.Location = new Point(x, 0);
+                } while (coin3.Bounds.IntersectsWith(ptbEnemyCar3.Bounds));
+            }
+
+            if (ptbMainCar.Bounds.IntersectsWith(coin4.Bounds))
+            {
+                soundCoin();
+                coinTemp++;
+                numberOfCoin.Text = "Coin = " + coinTemp.ToString();
+                do
+                {
+                    x = rand.Next(360, 570);
+                    coin4.Location = new Point(x, 0);
+                } while (coin4.Bounds.IntersectsWith(ptbEnemyCar4.Bounds) || coin4.Bounds.IntersectsWith(ptbEnemyCar5.Bounds));
+            }
         }
         void gameOver()
         {
@@ -164,41 +242,7 @@ namespace car_racing_game
             soundPlayer.SoundLocation = Application.StartupPath + @"\..\..\Sound\CoinSound.wav";
             soundPlayer.Play();
         }
-        void collectionCoin()
-        {
-            if (ptbMainCar.Bounds.IntersectsWith(coin1.Bounds))
-            {
-                soundCoin();
-                coinTemp++;
-                numberOfCoin.Text = "Coin = " + coinTemp.ToString();
-                x = rand.Next(0, 150);
-                coin1.Location = new Point(x, 0);
-            }
-            if (ptbMainCar.Bounds.IntersectsWith(coin2.Bounds))
-            {
-                soundCoin();
-                coinTemp++;
-                numberOfCoin.Text = "Coin = " + coinTemp.ToString();
-                x = rand.Next(0, 150);
-                coin2.Location = new Point(x, 0);
-            }
-            if (ptbMainCar.Bounds.IntersectsWith(coin3.Bounds))
-            {
-                soundCoin();
-                coinTemp++;
-                numberOfCoin.Text = "Coin = " + coinTemp.ToString();
-                x = rand.Next(0, 150);
-                coin3.Location = new Point(x, 0);
-            }
-            if (ptbMainCar.Bounds.IntersectsWith(coin4.Bounds))
-            {
-                soundCoin();
-                coinTemp++;
-                numberOfCoin.Text = "Coin = " + coinTemp.ToString();
-                x = rand.Next(0, 150);
-                coin4.Location = new Point(x, 0);
-            }
-        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             timer1.Enabled = false;
@@ -240,28 +284,31 @@ namespace car_racing_game
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Left)
+            if (timer1.Enabled == true)
             {
-                if (ptbMainCar.Left > 0)
-                    ptbMainCar.Left -= 10;
-            }
+                if (e.KeyCode == Keys.Left)
+                {
+                    if (ptbMainCar.Left > 0)
+                        ptbMainCar.Left -= 10;
+                }
 
-            if (e.KeyCode == Keys.Right)
-            {
-                if (ptbMainCar.Right < 720)
-                    ptbMainCar.Left += 10;
-            }
+                if (e.KeyCode == Keys.Right)
+                {
+                    if (ptbMainCar.Right < 720)
+                        ptbMainCar.Left += 10;
+                }
 
-            if (e.KeyCode == Keys.Up)
-            {
-                if (ptbMainCar.Top > 0)
-                    ptbMainCar.Top -= 10;
-            }
+                if (e.KeyCode == Keys.Up)
+                {
+                    if (ptbMainCar.Top > 0)
+                        ptbMainCar.Top -= 10;
+                }
 
-            if (e.KeyCode == Keys.Down)
-            {
-                if (ptbMainCar.Top < 340)
-                    ptbMainCar.Top += 10;
+                if (e.KeyCode == Keys.Down)
+                {
+                    if (ptbMainCar.Top < 340)
+                        ptbMainCar.Top += 10;
+                } 
             }
 
         }

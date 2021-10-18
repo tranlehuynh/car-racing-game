@@ -53,7 +53,8 @@ namespace car_racing_game
 
         private void btDiemSo_Click(object sender, EventArgs e)
         {
-
+            ScoreForm f = new ScoreForm();
+            f.ShowDialog();
         }
 
         private void btHuongDan_Click(object sender, EventArgs e)
