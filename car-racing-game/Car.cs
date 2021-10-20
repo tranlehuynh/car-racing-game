@@ -68,7 +68,7 @@ namespace car_racing_game
         }
         public bool checkSkill(int percent)
         {
-            return percent == 100 ? true : false;
+            return percent >= 100 ? true : false;
         }
     }
     class EnemyCar : Car

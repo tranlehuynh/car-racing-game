@@ -52,6 +52,8 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.Time = new System.Windows.Forms.Label();
             this.Point = new System.Windows.Forms.Label();
+            this.progressBar2 = new System.Windows.Forms.ProgressBar();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEnemyCar5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEnemyCar3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMainCar)).BeginInit();
@@ -309,12 +311,32 @@
             this.Point.Text = "label1";
             this.Point.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // progressBar2
+            // 
+            this.progressBar2.BackColor = System.Drawing.Color.White;
+            this.progressBar2.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.progressBar2.Location = new System.Drawing.Point(12, 33);
+            this.progressBar2.Name = "progressBar2";
+            this.progressBar2.Size = new System.Drawing.Size(81, 19);
+            this.progressBar2.TabIndex = 53;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.BackColor = System.Drawing.Color.White;
+            this.progressBar1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.progressBar1.Location = new System.Drawing.Point(740, 33);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(81, 19);
+            this.progressBar1.TabIndex = 54;
+            // 
             // Map1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(833, 749);
+            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.progressBar2);
             this.Controls.Add(this.Point);
             this.Controls.Add(this.Time);
             this.Controls.Add(this.ptbEnemyCar6);
@@ -388,5 +410,7 @@
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Label Time;
         private System.Windows.Forms.Label Point;
+        private System.Windows.Forms.ProgressBar progressBar2;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }

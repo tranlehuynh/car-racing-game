@@ -28,9 +28,11 @@ namespace car_racing_game
             // Hàm BG với tham số (speed của map, mảng các vạch đứt trong map đã được thiết kế sẵn, mảng các vạch liền, mảng các toạ độ X của từng lane dựa vào toạ độ này để xác định lane cho Car)
             backGround = new BG(5, new PictureBox[] { pbVachDut1, pbVachDut2, pbVachDut3, pbVachDut4, pbVachDut5, pbVachDut6, pbVachDut7, pbVachDut8, pbVachDut9, pbVachDut10, pbVachDut11, pbVachDut12 }
             , new int[] { 112, 302, 492, 672 }); // left của từng lane
-            mainCar = new MainCar(pbMainCar, 0, ClientRectangle, backGround); // Hàm khởi tạo cần pictureBox của mainCar
+
+            // Hàm khởi tạo cần pictureBox của mainCar
+            mainCar = new MainCar(pbMainCar, 0, ClientRectangle, backGround); 
             this.mode = mode;
-            speedbuff = backGround.speed;
+            speedbuff = backGround.speed / 4;
             if (this.mode)
             {
                 //Khoi tao pictureBox thief car
@@ -41,11 +43,15 @@ namespace car_racing_game
 
                 //add controls vao form
                 Controls.Add(thiefCar);
+
                 //gan lai anh cho mainCar thanh police car
                 mainCar.pb.Image = Image.FromFile(Application.StartupPath + @"/../../Images/police-car.png");
+                
                 //Khoi tao thief car
                 thief = new ThiefCar(thiefCar, ClientRectangle, mainCar, backGround.speed, backGround);
             }
+
+            // Them pictureBox cua cac enemyCar vao mang enemies
             enemies = new EnemyCar[] { new EnemyCar(pbEnemyCar1, backGround.speed, backGround),
                 new EnemyCar(pbEnemyCar2, backGround.speed, backGround),
                 new EnemyCar(pbEnemyCar3, backGround.speed, backGround),
@@ -55,22 +61,31 @@ namespace car_racing_game
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            roadMainCar += backGround.speed; //Tính quãng đường đi được, hiện bên tay trái form
-            Point.Text = (roadMainCar / 1000).ToString(); //1000 có thể thay đổi //Tính điểm theo cơ chế road = 1000 thì được 1 điểm
-            backGround.loopmove(ClientRectangle); // Hàm loopmove dùng để di chuyển các vạch đứt trong vạch kẻ đường, vạch kẻ đường đã được thêm vào bằng hàm khởi tạo
+            //Tính quãng đường đi được, hiện bên tay trái form
+            roadMainCar += backGround.speed;
+
+            //1000 có thể thay đổi //Tính điểm theo cơ chế road = 1000 thì được 1 điểm
+            Point.Text = (roadMainCar / 1000).ToString();
+
+            // Hàm loopmove dùng để di chuyển các vạch đứt trong vạch kẻ đường, vạch kẻ đường đã được thêm vào bằng hàm khởi tạo
+            backGround.loopmove(ClientRectangle);
+
+            //enemyCar.move dùng để di chuyển các enemyCar, đã xử lý việc random xuất hiện
             foreach (var item in enemies)
             {
-                item.move(ClientRectangle, backGround, enemies); //EnemyCar.move dùng để di chuyển các enemyCar, đã xử lý việc random xuất hiện
+                item.move(ClientRectangle, backGround, enemies); 
             }
 
             //Xet va cham
             EnemyCar.EnemyCarVsEnemyCar(enemies); // Kiểm tra xem các enemyCar có đụng trúng nhau không, nếu có thì hãm speed của enemyCar lại
             if (mode)
             {
+                //
                 thief.run(backGround);
+                roadThief += thief.speed;
                 // Kiểm tra đụng xe giữa mainCar và thiefCar với các enemyCar, tham số enemies là tập hợp các enemyCar
                 {
-                    if (thief.vaChamXe(enemies) || mainCar.pb.Bounds.IntersectsWith(thief.pb.Bounds) || thief.pb.Bottom == ClientRectangle.Bottom)
+                    if (roadThief == 100000 ||thief.vaChamXe(enemies) || mainCar.pb.Bounds.IntersectsWith(thief.pb.Bounds) || thief.pb.Bottom == ClientRectangle.Bottom)
                     timer1.Enabled = timer2.Enabled = false;
                 }
 
@@ -83,7 +98,6 @@ namespace car_racing_game
             }
             //Check skill main Car
             checkSkillMainCar = mainCar.checkSkill(progressBar2.Value);
-
         }
 
         protected void timer2_Tick(object sender, EventArgs e)
@@ -92,11 +106,11 @@ namespace car_racing_game
             //Tich nitro, xe an trom tich nitro lau hon xe canh sat
             if (!checkSkillMainCar && !timerMain.Enabled)
             {
-                progressBar2.Increment(5);
+                progressBar2.Increment(10);
             }
             if (mode)
             {
-                if (!checkSkillThief && !timerThief.Enabled) progressBar1.Increment(10);
+                if (!checkSkillThief && !timerThief.Enabled) progressBar1.Increment(5);
             }
         }
 
@@ -104,11 +118,13 @@ namespace car_racing_game
         {
             Time.Text = Point.Text = 0.ToString();
             progressBar2.Visible = true;
+            //timer MainCar
             timerMain = new System.Windows.Forms.Timer();
             timerMain.Tick += new EventHandler(timerMain_tick);
             timerMain.Interval = 1000;
             if (mode)
             {
+                //Timer Thief car
                 timerThief = new System.Windows.Forms.Timer();
                 timerThief.Tick += new EventHandler(timerThief_tick);
                 timerThief.Interval = 1000;
@@ -132,9 +148,11 @@ namespace car_racing_game
             }
             if (e.KeyCode == Keys.W)
             {
+                Console.WriteLine("W");
                 if (checkSkillMainCar)
                 {
                     mainCar.buffSpeed(backGround, speedbuff);
+                    Console.WriteLine("maincar-buffspeed");
                     timerMain.Start();
                 }
             }
