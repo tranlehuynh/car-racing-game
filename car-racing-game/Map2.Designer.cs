@@ -55,6 +55,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.progressBar2 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnemyCar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnemyCar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnemyCar4)).BeginInit();
@@ -315,7 +317,7 @@
             this.pictureBox13.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBox13.Location = new System.Drawing.Point(0, 0);
             this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(57, 818);
+            this.pictureBox13.Size = new System.Drawing.Size(57, 749);
             this.pictureBox13.TabIndex = 12;
             this.pictureBox13.TabStop = false;
             // 
@@ -325,9 +327,27 @@
             this.pictureBox12.Dock = System.Windows.Forms.DockStyle.Right;
             this.pictureBox12.Location = new System.Drawing.Point(776, 0);
             this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(57, 818);
+            this.pictureBox12.Size = new System.Drawing.Size(57, 749);
             this.pictureBox12.TabIndex = 11;
             this.pictureBox12.TabStop = false;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.BackColor = System.Drawing.Color.White;
+            this.progressBar1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.progressBar1.Location = new System.Drawing.Point(525, 723);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(183, 19);
+            this.progressBar1.TabIndex = 35;
+            // 
+            // progressBar2
+            // 
+            this.progressBar2.BackColor = System.Drawing.Color.White;
+            this.progressBar2.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.progressBar2.Location = new System.Drawing.Point(152, 723);
+            this.progressBar2.Name = "progressBar2";
+            this.progressBar2.Size = new System.Drawing.Size(183, 19);
+            this.progressBar2.TabIndex = 36;
             // 
             // Map2
             // 
@@ -335,7 +355,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(833, 818);
+            this.ClientSize = new System.Drawing.Size(833, 749);
+            this.Controls.Add(this.progressBar2);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.pbEnemyCar1);
             this.Controls.Add(this.pbEnemyCar2);
             this.Controls.Add(this.pbEnemyCar4);
@@ -416,6 +438,8 @@
         private System.Windows.Forms.PictureBox pbEnemyCar4;
         private System.Windows.Forms.PictureBox pbEnemyCar2;
         private System.Windows.Forms.PictureBox pbEnemyCar1;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ProgressBar progressBar2;
     }
 
 }

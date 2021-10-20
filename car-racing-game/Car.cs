@@ -20,7 +20,7 @@ namespace car_racing_game
     {
         public MainCar(System.Windows.Forms.PictureBox pictureBox, int speed, System.Drawing.Rectangle rectangle, BG bG) : base(pictureBox, speed)
         {
-            pb.Top = rectangle.Bottom - pb.Height; // gán top cho mainCar nằm dưới cùng
+            pb.Top = rectangle.Bottom - 3 * pb.Height / 2; // gán top cho mainCar nằm dưới cùng
             pb.Left = bG.lane[bG.lane.Length / 2]; // Khởi tạo xe tại lane giữa
         }
 
@@ -50,6 +50,26 @@ namespace car_racing_game
             }
             return false;
         }
+        public void buffSpeed(BG background, int speed)
+        {
+            background.speed += speed;
+        }
+        public void downSpeed(BG background, int speed)
+        {
+            background.speed -= speed;
+        }
+        public void buffSpeed(int speed)
+        {
+            this.speed += speed;
+        }
+        public void downSpeed(int speed)
+        {
+            this.speed -= speed;
+        }
+        public bool checkSkill(int percent)
+        {
+            return percent == 100 ? true : false;
+        }
     }
     class EnemyCar : Car
     {
@@ -68,11 +88,13 @@ namespace car_racing_game
             pb.Top = 0 - pb.Height;
             foreach (var enemy in enemies)
             {
+                System.Drawing.Rectangle rectangle = enemy.pb.Bounds;
+                rectangle.Height *= 3;
                 if (this.Equals(enemy)) // kiểm tra trùng
                     continue;
-                if (enemy.pb.Bounds.IntersectsWith(pb.Bounds))
+                if (rectangle.IntersectsWith(pb.Bounds))
                 {
-                    pb.Top = enemy.pb.Top - 2 * pb.Height;
+                    pb.Top = enemy.pb.Top - 3 * pb.Height;
                 }
             }
             if (temp < bG.lane.Length / 2) // nếu xe đi ngược chiều
@@ -92,7 +114,7 @@ namespace car_racing_game
             foreach (var item in enemyCars)
             {
                 System.Drawing.Rectangle rectangle = item.pb.Bounds;
-                rectangle.Height = rectangle.Height * 2;
+                rectangle.Height *= 3;
                 foreach (var y in enemyCars)
                 {
                     if (item.Equals(y))
@@ -125,6 +147,20 @@ namespace car_racing_game
             {
                 available = false;
                 makeEnemy(bG, enemies);
+            }
+        }
+    }
+    class ThiefCar : MainCar
+    {
+        public ThiefCar(System.Windows.Forms.PictureBox pictureBox, System.Drawing.Rectangle rectangle, MainCar mainCar, int speed, BG bG) : base(pictureBox, speed, rectangle, bG)
+        {
+            pb.Top = mainCar.pb.Top - rectangle.Height / 2;
+        }
+        public void run(BG background)
+        {
+            if (speed < background.speed)
+            {
+                pb.Top += background.speed - speed;
             }
         }
     }

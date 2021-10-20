@@ -41,14 +41,16 @@ namespace car_racing_game
 
         private void btMotNguoiChoi_Click(object sender, EventArgs e)
         {
-            Form1 f = new Form1();
+            Map2 f = new Map2(false);
             soundPlayer.Stop();
-            f.Show();
+            f.ShowDialog();
         }
 
         private void btHaiNguoiChoi_Click(object sender, EventArgs e)
         {
-
+            Map2 m = new Map2(true);
+            soundPlayer.Stop();
+            m.ShowDialog();
         }
 
         private void btDiemSo_Click(object sender, EventArgs e)

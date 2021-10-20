@@ -20,7 +20,7 @@ namespace car_racing_game
         public Map1(bool mode)
         {
             InitializeComponent();
-            backGround = new BG(5, new PictureBox[] { pbVachDut1, pbVachDut2, pbVachDut3, pbVachDut4, pbVachDut5, pbVachDut6, pbVachDut7, pbVachDut8, pbVachDut9, pbVachDut10, pbVachDut11, pbVachDut12 }
+            backGround = new BG(8, new PictureBox[] { pbVachDut1, pbVachDut2, pbVachDut3, pbVachDut4, pbVachDut5, pbVachDut6, pbVachDut7, pbVachDut8, pbVachDut9, pbVachDut10, pbVachDut11, pbVachDut12 }
             , new int[] { 44, 164, 324, 468, 614, 748 }); // left của từng lane
             mainCar = new MainCar(ptbMainCar, 0, ClientRectangle, backGround); // Hàm khởi tạo cần pictureBox của mainCar
             EnemyCar enemyCar1 = new EnemyCar(ptbEnemyCar1, backGround.speed, backGround); // EnemyCar cần pictureBox của enemyCar, speed của map và đối tượng backGround (hiện tại trong code đang là backGround thiết kế với 4 lane)
@@ -48,7 +48,7 @@ namespace car_racing_game
             EnemyCar.EnemyCarVsEnemyCar(enemies); // Kiểm tra xem các enemyCar có đụng trúng nhau không, nếu có thì hãm speed của enemyCar lại
             if (mainCar.vaChamXe(enemies)) // Kiểm tra đụng xe giữa mainCar và các enemyCar, tham số enemies là tập hợp các enemyCar
             {
-                timer1.Enabled = false;
+                timer1.Enabled = timer2.Enabled = false;
             }
         }
 
