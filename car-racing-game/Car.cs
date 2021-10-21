@@ -105,7 +105,7 @@ namespace car_racing_game
             }
             else
             {
-                nguoc = false; // Chỗ này hơi thừa, nhưng cứ để đây cho chắc ăn
+                nguoc = false;
                 this.speed = random.Next((bG.speed / 2), bG.speed);
             }
         }
@@ -149,12 +149,26 @@ namespace car_racing_game
                 makeEnemy(bG, enemies);
             }
         }
+        public static void buffSpeedEnenemy(EnemyCar[] enemies, int speedbuff)
+        {
+            foreach(EnemyCar enemy in enemies)
+            {
+                enemy.speed += speedbuff;
+            }
+        }
+        public static void downSpeedEnenmy(EnemyCar[] enemies, int speedbuff)
+        {
+            foreach (EnemyCar enemy in enemies)
+            {
+                enemy.speed -= speedbuff;
+            }
+        }
     }
     class ThiefCar : MainCar
     {
         public ThiefCar(System.Windows.Forms.PictureBox pictureBox, System.Drawing.Rectangle rectangle, MainCar mainCar, int speed, BG bG) : base(pictureBox, speed, rectangle, bG)
         {
-            pb.Top = mainCar.pb.Top - rectangle.Height / 2;
+            pb.Top = mainCar.pb.Top - rectangle.Height / 10 * 4;
         }
         public void run(BG background)
         {
