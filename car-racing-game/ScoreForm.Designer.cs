@@ -44,6 +44,7 @@ namespace car_racing_game
             this.txtPlayerName.Name = "txtPlayerName";
             this.txtPlayerName.Size = new System.Drawing.Size(445, 28);
             this.txtPlayerName.TabIndex = 0;
+            this.txtPlayerName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPlayerName_KeyPress);
             // 
             // btXacNhan
             // 
@@ -93,6 +94,7 @@ namespace car_racing_game
             this.Controls.Add(this.txtPlayerName);
             this.Name = "ScoreForm";
             this.Text = "ScoreForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ScoreForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

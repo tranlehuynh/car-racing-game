@@ -196,37 +196,39 @@ namespace car_racing_game
                 } while (coin4.Bounds.IntersectsWith(ptbEnemyCar4.Bounds) || coin4.Bounds.IntersectsWith(ptbEnemyCar5.Bounds));
             }
         }
+        void lose()
+        {
+            gameOverSound();
+            //int superman = coinTemp;
+            timer1.Enabled = false;
+            lbGameOver.Visible = true;
+
+            //Đưa số coin ăn được qua ScoreForm.cs
+            ScoreForm scoreForm = new ScoreForm();
+            scoreForm.Message = coinTemp.ToString();
+            scoreForm.Show();
+        }
         void gameOver()
         {
             if(ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar1.Bounds))
             {
-                gameOverSound();
-                timer1.Enabled = false;
-                lbGameOver.Visible = true;
+                lose();
             }
             if (ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar2.Bounds))
             {
-                gameOverSound();
-                timer1.Enabled = false;
-                lbGameOver.Visible = true;
+                lose();
             }
             if (ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar3.Bounds))
             {
-                gameOverSound();
-                timer1.Enabled = false;
-                lbGameOver.Visible = true;
+                lose();
             }
             if (ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar4.Bounds))
             {
-                gameOverSound();
-                timer1.Enabled = false;
-                lbGameOver.Visible = true;
+                lose();
             }
             if (ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar5.Bounds))
             {
-                gameOverSound(); 
-                timer1.Enabled = false;
-                lbGameOver.Visible = true;
+                lose();
             }
         }
 
@@ -254,12 +256,6 @@ namespace car_racing_game
             gameOver();
             coin(8);
             collectionCoin();
-            ////if (ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar1.Bounds) || ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar2.Bounds)
-            ////    || ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar3.Bounds) || ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar4.Bounds)
-            ////    || ptbMainCar.Bounds.IntersectsWith(ptbEnemyCar5.Bounds))
-            //{
-            //    timer1.Enabled = false;
-            //}
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)

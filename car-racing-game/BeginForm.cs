@@ -35,15 +35,16 @@ namespace car_racing_game
         string imagePath = Application.StartupPath + @"\..\..\Images\";
         private void BeginForm_Load(object sender, EventArgs e)
         {
-            soundPlayer.SoundLocation = Application.StartupPath + @"\..\..\Sound\ThemeSong2.wav";
-            soundPlayer.PlayLooping();
+            //soundPlayer.SoundLocation = Application.StartupPath + @"\..\..\Sound\ThemeSong2.wav";
+            //soundPlayer.PlayLooping();
         }
 
         private void btMotNguoiChoi_Click(object sender, EventArgs e)
         {
-            Map1 f = new Map1(false);
+            //Map1 f = new Map1(false);
+            Form1 form1 = new Form1();
             soundPlayer.Stop();
-            f.ShowDialog();
+            form1.ShowDialog();
         }
 
         private void btHaiNguoiChoi_Click(object sender, EventArgs e)
@@ -55,14 +56,14 @@ namespace car_racing_game
 
         private void btDiemSo_Click(object sender, EventArgs e)
         {
-            ScoreForm f = new ScoreForm();
-            f.ShowDialog();
+            FormDiemSo formDiemSo = new FormDiemSo();
+            formDiemSo.ShowDialog();
         }
 
         private void btHuongDan_Click(object sender, EventArgs e)
         {
             InstructionForm instructionForm = new InstructionForm();
-            instructionForm.Show();
+            instructionForm.ShowDialog();
         }
 
         private void btMotNguoiChoi_KeyDown(object sender, KeyEventArgs e)
@@ -81,7 +82,11 @@ namespace car_racing_game
 
         private void btDiemSo_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Enter)
+            {
+                FormDiemSo formDiemSo = new FormDiemSo();
+                formDiemSo.ShowDialog();
+            }
         }
 
         private void btHuongDan_KeyDown(object sender, KeyEventArgs e)
@@ -89,7 +94,7 @@ namespace car_racing_game
             if (e.KeyCode == Keys.Enter)
             {
                 InstructionForm instructionForm = new InstructionForm();
-                instructionForm.Show();
+                instructionForm.ShowDialog();
             }
         }
 
