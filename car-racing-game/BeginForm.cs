@@ -42,14 +42,14 @@ namespace car_racing_game
         private void btMotNguoiChoi_Click(object sender, EventArgs e)
         {
             //Map1 f = new Map1(false);
-            Map2 form1 = new Map2(false);
+            Map1 form1 = new Map1(false);
             soundPlayer.Stop();
             form1.ShowDialog();
         }
 
         private void btHaiNguoiChoi_Click(object sender, EventArgs e)
         {
-            Map2 m = new Map2(true);
+            Map1 m = new Map1(true);
             soundPlayer.Stop();
             m.ShowDialog();
         }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Map1));
             this.ptbEnemyCar5 = new System.Windows.Forms.PictureBox();
             this.ptbEnemyCar3 = new System.Windows.Forms.PictureBox();
             this.ptbMainCar = new System.Windows.Forms.PictureBox();
@@ -53,6 +54,7 @@
             this.Point = new System.Windows.Forms.Label();
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.coin1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEnemyCar5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEnemyCar3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMainCar)).BeginInit();
@@ -71,6 +73,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptbEnemyCar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEnemyCar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEnemyCar4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin1)).BeginInit();
             this.SuspendLayout();
             // 
             // ptbEnemyCar5
@@ -315,12 +318,25 @@
             this.progressBar1.Size = new System.Drawing.Size(81, 19);
             this.progressBar1.TabIndex = 54;
             // 
+            // coin1
+            // 
+            this.coin1.BackColor = System.Drawing.Color.Gray;
+            this.coin1.Image = ((System.Drawing.Image)(resources.GetObject("coin1.Image")));
+            this.coin1.Location = new System.Drawing.Point(479, 9);
+            this.coin1.Margin = new System.Windows.Forms.Padding(2);
+            this.coin1.Name = "coin1";
+            this.coin1.Size = new System.Drawing.Size(25, 27);
+            this.coin1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.coin1.TabIndex = 55;
+            this.coin1.TabStop = false;
+            // 
             // Map1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(833, 749);
+            this.Controls.Add(this.coin1);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.progressBar2);
             this.Controls.Add(this.Point);
@@ -365,6 +381,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptbEnemyCar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEnemyCar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEnemyCar4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -395,5 +412,6 @@
         private System.Windows.Forms.Label Point;
         private System.Windows.Forms.ProgressBar progressBar2;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.PictureBox coin1;
     }
 }
