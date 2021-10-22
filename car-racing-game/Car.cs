@@ -50,22 +50,6 @@ namespace car_racing_game
             }
             return false;
         }
-        public void buffSpeed(BG background, int speed)
-        {
-            background.speed += speed;
-        }
-        public void downSpeed(BG background, int speed)
-        {
-            background.speed -= speed;
-        }
-        public void buffSpeed(int speed)
-        {
-            this.speed += speed;
-        }
-        public void downSpeed(int speed)
-        {
-            this.speed -= speed;
-        }
         public bool checkSkill(int percent)
         {
             return percent >= 100 ? true : false;
@@ -85,16 +69,20 @@ namespace car_racing_game
             Random random = new Random();
             int temp = random.Next(0, (bG.lane.Length));
             pb.Left = bG.lane[temp]; // lay lane random trong Background.lane
-            pb.Top = 0 - pb.Height;
+            System.Drawing.Rectangle rectangle = pb.Bounds;
+            rectangle.Height *= 3;
             foreach (var enemy in enemies)
             {
-                System.Drawing.Rectangle rectangle = enemy.pb.Bounds;
-                rectangle.Height *= 3;
-                if (this.Equals(enemy)) // kiểm tra trùng
-                    continue;
-                if (rectangle.IntersectsWith(pb.Bounds))
+                if (this.pb.Name != enemy.pb.Name) // kiểm tra trùng
                 {
-                    pb.Top = enemy.pb.Top - 3 * pb.Height;
+                    if (rectangle.IntersectsWith(enemy.pb.Bounds))
+                    {
+                        temp = random.Next(0, (bG.lane.Length));
+                        pb.Left = bG.lane[temp];
+                        pb.Top = enemy.pb.Top - pb.Height * 3;
+                        rectangle = pb.Bounds;
+                        rectangle.Height *= 3;
+                    }
                 }
             }
             if (temp < bG.lane.Length / 2) // nếu xe đi ngược chiều
@@ -117,19 +105,41 @@ namespace car_racing_game
                 rectangle.Height *= 3;
                 foreach (var y in enemyCars)
                 {
-                    if (item.Equals(y))
-                        continue; // Kiểm tra trùng xe
-                    if (rectangle.IntersectsWith(y.pb.Bounds))
+                    if (item.pb.Name != y.pb.Name)
                     {
-                        item.speed = y.speed; // Nếu trùng thì hãm speed 2 xe bằng speed xe nào thấp hơn
+                        if (rectangle.IntersectsWith(y.pb.Bounds))
+                        {
+                            item.speed = y.speed; // Nếu trùng thì hãm speed 2 xe bằng speed xe nào thấp hơn
+                        }
                     }
                 }
             }
         }
 
+        public static void buffSpeed(EnemyCar[] enemies, int speedbuff)
+        {
+            foreach(EnemyCar enemy in enemies)
+            {
+                enemy.speed += speedbuff;
+            }
+        }
+
+        public static void downSpeed(EnemyCar[] enemies, int speedbuff)
+        {
+            foreach (EnemyCar enemy in enemies)
+            {
+                enemy.speed -= speedbuff;
+            }
+        }
+
         public void move(System.Drawing.Rectangle rec, BG bG, EnemyCar[] enemies)
         {
-            if (!available)
+            if (available)
+            {
+                available = false;
+                makeEnemy(bG, enemies);
+            }
+            else
             {
                 pb.Top += speed;
                 if (pb.Top >= rec.Bottom)
@@ -143,10 +153,13 @@ namespace car_racing_game
                     }
                 }
             }
-            else
+        }
+
+        public static void loopmove(System.Drawing.Rectangle rec, BG bg, EnemyCar[] enemies)
+        {
+            foreach (EnemyCar enemyCar in enemies)
             {
-                available = false;
-                makeEnemy(bG, enemies);
+                enemyCar.move(rec, bg, enemies);
             }
         }
         public static void buffSpeedEnenemy(EnemyCar[] enemies, int speedbuff)
@@ -154,13 +167,6 @@ namespace car_racing_game
             foreach(EnemyCar enemy in enemies)
             {
                 enemy.speed += speedbuff;
-            }
-        }
-        public static void downSpeedEnenmy(EnemyCar[] enemies, int speedbuff)
-        {
-            foreach (EnemyCar enemy in enemies)
-            {
-                enemy.speed -= speedbuff;
             }
         }
     }
@@ -172,10 +178,7 @@ namespace car_racing_game
         }
         public void run(BG background)
         {
-            if (speed < background.speed)
-            {
-                pb.Top += background.speed - speed;
-            }
+            pb.Top += background.speed - this.speed;
         }
     }
 }

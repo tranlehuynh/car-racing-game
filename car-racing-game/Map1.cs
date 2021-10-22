@@ -53,8 +53,7 @@ namespace car_racing_game
             EnemyCar enemyCar3 = new EnemyCar(ptbEnemyCar3, backGround.speed, backGround);
             EnemyCar enemyCar4 = new EnemyCar(ptbEnemyCar4, backGround.speed, backGround);
             EnemyCar enemyCar5 = new EnemyCar(ptbEnemyCar5, backGround.speed, backGround);
-            EnemyCar enemyCar6 = new EnemyCar(ptbEnemyCar6, backGround.speed, backGround);
-            enemies = new EnemyCar[] { enemyCar1, enemyCar2, enemyCar3, enemyCar4, enemyCar5, enemyCar6 }; //Thêm các enemyCar vào tập hợp enemies để dễ kiểm soát
+            enemies = new EnemyCar[] { enemyCar1, enemyCar2, enemyCar3, enemyCar4, enemyCar5}; //Thêm các enemyCar vào tập hợp enemies để dễ kiểm soát
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -150,7 +149,7 @@ namespace car_racing_game
                 {
                     if (checkSkillMainCar)
                     {
-                        mainCar.buffSpeed(backGround, speedbuff);
+                        backGround.speed += speedbuff;
                         if ((mode && timerThief.Enabled == false) || mode == false)
                         {
                             EnemyCar.buffSpeedEnenemy(enemies, speedbuff);
@@ -187,7 +186,7 @@ namespace car_racing_game
                     {
                         if (checkSkillThief)
                         {
-                            thief.buffSpeed(speedbuff);
+                            thief.speed += speedbuff;
                             if (timerMain.Enabled == false) EnemyCar.buffSpeedEnenemy(enemies, speedbuff);
                             timerThief.Start();
                         }
@@ -196,7 +195,7 @@ namespace car_racing_game
                     {
                         if (checkSkillMainCar)
                         {
-                            mainCar.buffSpeed(backGround, speedbuff);
+                            backGround.speed += speedbuff;
                             EnemyCar.buffSpeedEnenemy(enemies, speedbuff);
                             checkBuffSpeedEnemy = true;
                             timerMain.Start();
@@ -212,10 +211,10 @@ namespace car_racing_game
             if (buffMain == 0)
             {
                 buffMain = 10;
-                mainCar.downSpeed(backGround, speedbuff);
+                backGround.speed -= speedbuff;
                 if (checkBuffSpeedEnemy)
                 {
-                    EnemyCar.downSpeedEnenmy(enemies, speedbuff);
+                    EnemyCar.downSpeed(enemies, speedbuff);
                     checkBuffSpeedEnemy = false;
                 }
                 timerMain.Stop();
@@ -228,10 +227,10 @@ namespace car_racing_game
             if (buffThief == 0)
             {
                 buffThief = 10;
-                thief.downSpeed(speedbuff);
+                thief.speed -= speedbuff;
                 if (checkBuffSpeedEnemy)
                 {
-                    EnemyCar.downSpeedEnenmy(enemies, speedbuff);
+                    EnemyCar.downSpeed(enemies, speedbuff);
                     checkBuffSpeedEnemy = false;
                 }
                 timerThief.Stop();

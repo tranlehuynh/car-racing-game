@@ -47,7 +47,6 @@
             this.ptbEnemyCar1 = new System.Windows.Forms.PictureBox();
             this.ptbEnemyCar2 = new System.Windows.Forms.PictureBox();
             this.ptbEnemyCar4 = new System.Windows.Forms.PictureBox();
-            this.ptbEnemyCar6 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.Time = new System.Windows.Forms.Label();
@@ -72,7 +71,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptbEnemyCar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEnemyCar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEnemyCar4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbEnemyCar6)).BeginInit();
             this.SuspendLayout();
             // 
             // ptbEnemyCar5
@@ -265,18 +263,6 @@
             this.ptbEnemyCar4.TabIndex = 49;
             this.ptbEnemyCar4.TabStop = false;
             // 
-            // ptbEnemyCar6
-            // 
-            this.ptbEnemyCar6.BackColor = System.Drawing.Color.Gray;
-            this.ptbEnemyCar6.Image = global::car_racing_game.Properties.Resources.red_car;
-            this.ptbEnemyCar6.Location = new System.Drawing.Point(601, 411);
-            this.ptbEnemyCar6.Margin = new System.Windows.Forms.Padding(2);
-            this.ptbEnemyCar6.Name = "ptbEnemyCar6";
-            this.ptbEnemyCar6.Size = new System.Drawing.Size(49, 107);
-            this.ptbEnemyCar6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbEnemyCar6.TabIndex = 50;
-            this.ptbEnemyCar6.TabStop = false;
-            // 
             // timer1
             // 
             this.timer1.Enabled = true;
@@ -339,7 +325,6 @@
             this.Controls.Add(this.progressBar2);
             this.Controls.Add(this.Point);
             this.Controls.Add(this.Time);
-            this.Controls.Add(this.ptbEnemyCar6);
             this.Controls.Add(this.ptbEnemyCar4);
             this.Controls.Add(this.ptbEnemyCar2);
             this.Controls.Add(this.ptbEnemyCar1);
@@ -380,7 +365,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptbEnemyCar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEnemyCar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEnemyCar4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbEnemyCar6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -405,7 +389,6 @@
         private System.Windows.Forms.PictureBox ptbEnemyCar1;
         private System.Windows.Forms.PictureBox ptbEnemyCar2;
         private System.Windows.Forms.PictureBox ptbEnemyCar4;
-        private System.Windows.Forms.PictureBox ptbEnemyCar6;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Label Time;

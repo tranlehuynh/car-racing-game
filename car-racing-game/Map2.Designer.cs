@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Map2));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.label = new System.Windows.Forms.Label();
@@ -37,7 +38,6 @@
             this.Point = new System.Windows.Forms.Label();
             this.pbEnemyCar1 = new System.Windows.Forms.PictureBox();
             this.pbEnemyCar2 = new System.Windows.Forms.PictureBox();
-            this.pbEnemyCar4 = new System.Windows.Forms.PictureBox();
             this.pbEnemyCar3 = new System.Windows.Forms.PictureBox();
             this.pbMainCar = new System.Windows.Forms.PictureBox();
             this.pbVachDut12 = new System.Windows.Forms.PictureBox();
@@ -57,9 +57,9 @@
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
+            this.coin1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnemyCar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnemyCar2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbEnemyCar4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnemyCar3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMainCar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbVachDut12)).BeginInit();
@@ -77,6 +77,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin1)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -150,16 +151,6 @@
             this.pbEnemyCar2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbEnemyCar2.TabIndex = 33;
             this.pbEnemyCar2.TabStop = false;
-            // 
-            // pbEnemyCar4
-            // 
-            this.pbEnemyCar4.Image = global::car_racing_game.Properties.Resources.yellow_car;
-            this.pbEnemyCar4.Location = new System.Drawing.Point(493, 70);
-            this.pbEnemyCar4.Name = "pbEnemyCar4";
-            this.pbEnemyCar4.Size = new System.Drawing.Size(49, 107);
-            this.pbEnemyCar4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbEnemyCar4.TabIndex = 32;
-            this.pbEnemyCar4.TabStop = false;
             // 
             // pbEnemyCar3
             // 
@@ -349,6 +340,18 @@
             this.progressBar2.Size = new System.Drawing.Size(183, 19);
             this.progressBar2.TabIndex = 36;
             // 
+            // coin1
+            // 
+            this.coin1.BackColor = System.Drawing.Color.Gray;
+            this.coin1.Image = ((System.Drawing.Image)(resources.GetObject("coin1.Image")));
+            this.coin1.Location = new System.Drawing.Point(517, 6);
+            this.coin1.Margin = new System.Windows.Forms.Padding(2);
+            this.coin1.Name = "coin1";
+            this.coin1.Size = new System.Drawing.Size(25, 27);
+            this.coin1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.coin1.TabIndex = 37;
+            this.coin1.TabStop = false;
+            // 
             // Map2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -356,11 +359,11 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(833, 749);
+            this.Controls.Add(this.coin1);
             this.Controls.Add(this.progressBar2);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.pbEnemyCar1);
             this.Controls.Add(this.pbEnemyCar2);
-            this.Controls.Add(this.pbEnemyCar4);
             this.Controls.Add(this.pbEnemyCar3);
             this.Controls.Add(this.pbMainCar);
             this.Controls.Add(this.pbVachDut12);
@@ -389,7 +392,6 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Map2_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pbEnemyCar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnemyCar2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbEnemyCar4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnemyCar3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMainCar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbVachDut12)).EndInit();
@@ -407,6 +409,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -435,11 +438,11 @@
         private System.Windows.Forms.PictureBox pbVachDut9;
         private System.Windows.Forms.PictureBox pbMainCar;
         private System.Windows.Forms.PictureBox pbEnemyCar3;
-        private System.Windows.Forms.PictureBox pbEnemyCar4;
         private System.Windows.Forms.PictureBox pbEnemyCar2;
         private System.Windows.Forms.PictureBox pbEnemyCar1;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.ProgressBar progressBar2;
+        private System.Windows.Forms.PictureBox coin1;
     }
 
 }

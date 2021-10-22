@@ -20,7 +20,7 @@ namespace car_racing_game
         ThiefCar thief;
         System.Windows.Forms.Timer timerMain, timerThief;
         int buffMain = 10, buffThief = 10;
-        int speedbuff;
+        int speedbuff, speedmap;
 
         public Map2(bool mode)
         {
@@ -32,6 +32,7 @@ namespace car_racing_game
             // Hàm khởi tạo cần pictureBox của mainCar
             mainCar = new MainCar(pbMainCar, 0, ClientRectangle, backGround); 
             this.mode = mode;
+            speedmap = backGround.speed;
             speedbuff = backGround.speed / 4;
             if (this.mode)
             {
@@ -54,9 +55,8 @@ namespace car_racing_game
             // Them pictureBox cua cac enemyCar vao mang enemies
             enemies = new EnemyCar[] { new EnemyCar(pbEnemyCar1, backGround.speed, backGround),
                 new EnemyCar(pbEnemyCar2, backGround.speed, backGround),
-                new EnemyCar(pbEnemyCar3, backGround.speed, backGround),
-                new EnemyCar(pbEnemyCar4, backGround.speed, backGround)}; //Thêm các enemyCar vào tập hợp enemies để dễ kiểm soát
-            
+                new EnemyCar(pbEnemyCar3, backGround.speed, backGround)};
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -70,11 +70,8 @@ namespace car_racing_game
             // Hàm loopmove dùng để di chuyển các vạch đứt trong vạch kẻ đường, vạch kẻ đường đã được thêm vào bằng hàm khởi tạo
             backGround.loopmove(ClientRectangle);
 
-            //enemyCar.move dùng để di chuyển các enemyCar, đã xử lý việc random xuất hiện
-            foreach (var item in enemies)
-            {
-                item.move(ClientRectangle, backGround, enemies); 
-            }
+            //Di chuyen enemyCar
+            EnemyCar.loopmove(ClientRectangle, backGround, enemies);
 
             //Xet va cham
             EnemyCar.EnemyCarVsEnemyCar(enemies); // Kiểm tra xem các enemyCar có đụng trúng nhau không, nếu có thì hãm speed của enemyCar lại
@@ -82,15 +79,14 @@ namespace car_racing_game
             {
                 //
                 thief.run(backGround);
-                roadThief += thief.speed;
+
                 // Kiểm tra đụng xe giữa mainCar và thiefCar với các enemyCar, tham số enemies là tập hợp các enemyCar
-                {
-                    if (roadThief == 100000 ||thief.vaChamXe(enemies) || mainCar.pb.Bounds.IntersectsWith(thief.pb.Bounds) || thief.pb.Bottom == ClientRectangle.Bottom)
+                if (roadThief == 100000 || thief.vaChamXe(enemies) || mainCar.pb.Bounds.IntersectsWith(thief.pb.Bounds) || thief.pb.Bottom >= ClientRectangle.Bottom || thief.pb.Top <= 0)
                     timer1.Enabled = timer2.Enabled = timerMain.Enabled = timerThief.Enabled = false;
-                }
 
                 //Check skill
                 checkSkillThief = thief.checkSkill(progressBar1.Value);
+
             }
             if (mainCar.vaChamXe(enemies))
             {
@@ -106,11 +102,16 @@ namespace car_racing_game
             //Tich nitro, xe an trom tich nitro lau hon xe canh sat
             if (!checkSkillMainCar && !timerMain.Enabled)
             {
-                progressBar2.Increment(10);
+                progressBar2.Increment(5);
+                if (mainCar.pb.Left == coin1.Left) progressBar2.Increment(5);
             }
             if (mode)
             {
-                if (!checkSkillThief && !timerThief.Enabled) progressBar1.Increment(5);
+                if (!checkSkillThief && !timerThief.Enabled) 
+                {
+                    progressBar1.Increment(5);
+                    if (thief.pb.Left == coin1.Left) progressBar1.Increment(5);
+                }
             }
         }
 
@@ -129,11 +130,18 @@ namespace car_racing_game
                 timerThief.Tick += new EventHandler(timerThief_tick);
                 timerThief.Interval = 1000;
                 progressBar1.Visible = progressBar1.Enabled = true;
+
+                //Lane buff nitro
+                Random random = new Random();
+                coin1.Left = backGround.lane[random.Next(0, backGround.lane.Length)];
+                coin1.Top = ClientRectangle.Top;
             }
             else
             {
+                coin1.Visible = false;
                 progressBar1.Visible = progressBar1.Enabled = false;
             }
+
         }
 
         private void Map2_KeyDown(object sender, KeyEventArgs e)
@@ -152,7 +160,8 @@ namespace car_racing_game
                 {
                     if (checkSkillMainCar)
                     {
-                        mainCar.buffSpeed(backGround, speedbuff);
+                        backGround.speed = speedbuff + speedmap;
+                        EnemyCar.buffSpeed(enemies, speedbuff);
                         timerMain.Start();
                     }
                 }
@@ -184,7 +193,7 @@ namespace car_racing_game
                     {
                         if (checkSkillThief)
                         {
-                            thief.buffSpeed(speedbuff);
+                            thief.speed = speedbuff + speedmap;
                             timerThief.Start();
                         }
                     }
@@ -192,7 +201,8 @@ namespace car_racing_game
                     {
                         if (checkSkillMainCar)
                         {
-                            mainCar.buffSpeed(backGround, speedbuff);
+                            backGround.speed = speedbuff + speedmap;
+                            EnemyCar.buffSpeed(enemies, speedbuff);
                             timerMain.Start();
                         }
                     }
@@ -205,8 +215,11 @@ namespace car_racing_game
             buffMain--;
             if (buffMain == 0)
             {
+                if (mode)
+                {
+                    backGround.speed = speedmap;
+                }
                 buffMain = 10;
-                mainCar.downSpeed(backGround, speedbuff);
                 timerMain.Stop();
             }
         }
@@ -216,8 +229,8 @@ namespace car_racing_game
             buffThief--;
             if (buffThief == 0)
             {
+                thief.speed = speedmap;
                 buffThief = 10;
-                thief.downSpeed(speedbuff);
                 timerThief.Stop();
             }
         }
