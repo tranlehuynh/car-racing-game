@@ -83,6 +83,7 @@ namespace car_racing_game
             this.btHuy.TabIndex = 1;
             this.btHuy.Text = "Hủy";
             this.btHuy.UseVisualStyleBackColor = true;
+            this.btHuy.Click += new System.EventHandler(this.btHuy_Click);
             // 
             // ScoreForm
             // 

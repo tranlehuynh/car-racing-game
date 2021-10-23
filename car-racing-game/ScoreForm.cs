@@ -113,5 +113,10 @@ namespace car_racing_game
             }
             File.WriteAllLines(path, output);
         }
+
+        private void btHuy_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
