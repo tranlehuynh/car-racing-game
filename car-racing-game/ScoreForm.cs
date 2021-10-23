@@ -24,19 +24,11 @@ namespace car_racing_game
             get { return _message; }
             set { _message = value; }
         }
-        public bool ContainsUnicodeCharacter(string input)
-        {
-            const int MaxAnsiCode = 255;
-
-            return input.ToCharArray().Any(c => c > MaxAnsiCode);
-        }
         private void btXacNhan_Click(object sender, EventArgs e)
         {
-            //StringWriter stringWriter;
-            //string path = Application.StartupPath + @"\1PlayerScore.txt";
 
             //Neu chua co file
-            if (txtPlayerName != null && txtPlayerName.Text != "" && !String.IsNullOrWhiteSpace(txtPlayerName.Text) && !ContainsUnicodeCharacter(txtPlayerName.Text))
+            if (txtPlayerName != null && txtPlayerName.Text != "" && !String.IsNullOrWhiteSpace(txtPlayerName.Text))
             {
                 try
                 {
@@ -91,17 +83,28 @@ namespace car_racing_game
                 PlayerList.Add(newPlayer);
             }
 
-            //PlayerList = PlayerList.OrderBy(p => p.Score.Substring(0)).ToList();
 
-            PlayerList.Sort((a, b) =>int.Parse(a.Score).CompareTo(int.Parse(b.Score)));
 
-            //objListOrder.Sort((x, y) => x.OrderDate.CompareTo(y.OrderDate));
-            //List<Player> SortedList = PlayerList.OrderBy(o => o.Score).ToList();
-            //List<Player> SortedList = PlayerList.OrderBy(o => int.Parse(o.Score)).ToList();
-            foreach (var person in PlayerList)
-            {
-                Console.WriteLine($"{person.Name}{' '}{person.Score}");
-            }
+
+            //List<Player> PlayerList = new List<Player>();
+            //List<string> lines = File.ReadAllLines(path).ToList();
+
+            //foreach (var line in lines)
+            //{
+            //    string[] entries = line.Split(' ');
+
+            //    Player newPlayer = new Player();
+            //    newPlayer.Name = entries[0];
+            //    newPlayer.Score = entries[1];
+
+            //    PlayerList.Add(newPlayer);
+            //}
+
+            PlayerList.Sort((a, b) => int.Parse(b.Score).CompareTo(int.Parse(a.Score)));
+            //foreach (var person in PlayerList)
+            //{
+            //    Console.WriteLine($"{person.Name}{' '}{person.Score}");
+            //}
 
             List<string> output = new List<string>();
             foreach (var person in PlayerList)
@@ -109,7 +112,6 @@ namespace car_racing_game
                 output.Add($"{person.Name}{' '}{person.Score}");
             }
             File.WriteAllLines(path, output);
-            //Console.ReadLine();
         }
     }
 }

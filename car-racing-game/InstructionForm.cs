@@ -15,13 +15,8 @@ namespace car_racing_game
         public InstructionForm()
         {
             InitializeComponent();
-            lbCachChoi.BackColor = System.Drawing.Color.Transparent;
-            lbNguoiChoi1.BackColor = lbNguoiChoi2.BackColor = lbNoiDung1.BackColor = lbNoiDung2.BackColor = System.Drawing.Color.Transparent;
+
         }
-        private void DeleteBackColor(object sender, EventArgs e)
-        {
-            var temp = sender as Label;
-            temp.BackColor = System.Drawing.Color.Transparent;
-        }
+
     }
 }

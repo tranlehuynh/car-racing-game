@@ -30,6 +30,7 @@ namespace car_racing_game
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScoreForm));
             this.txtPlayerName = new System.Windows.Forms.TextBox();
             this.btXacNhan = new System.Windows.Forms.Button();
             this.lbPlayerName = new System.Windows.Forms.Label();
@@ -40,7 +41,7 @@ namespace car_racing_game
             // txtPlayerName
             // 
             this.txtPlayerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPlayerName.Location = new System.Drawing.Point(16, 80);
+            this.txtPlayerName.Location = new System.Drawing.Point(16, 46);
             this.txtPlayerName.Name = "txtPlayerName";
             this.txtPlayerName.Size = new System.Drawing.Size(445, 28);
             this.txtPlayerName.TabIndex = 0;
@@ -49,7 +50,7 @@ namespace car_racing_game
             // btXacNhan
             // 
             this.btXacNhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btXacNhan.Location = new System.Drawing.Point(88, 141);
+            this.btXacNhan.Location = new System.Drawing.Point(90, 96);
             this.btXacNhan.Name = "btXacNhan";
             this.btXacNhan.Size = new System.Drawing.Size(106, 32);
             this.btXacNhan.TabIndex = 1;
@@ -61,7 +62,7 @@ namespace car_racing_game
             // 
             this.lbPlayerName.AutoSize = true;
             this.lbPlayerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPlayerName.Location = new System.Drawing.Point(12, 39);
+            this.lbPlayerName.Location = new System.Drawing.Point(12, 19);
             this.lbPlayerName.Name = "lbPlayerName";
             this.lbPlayerName.Size = new System.Drawing.Size(170, 24);
             this.lbPlayerName.TabIndex = 2;
@@ -76,7 +77,7 @@ namespace car_racing_game
             // btHuy
             // 
             this.btHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btHuy.Location = new System.Drawing.Point(275, 141);
+            this.btHuy.Location = new System.Drawing.Point(267, 96);
             this.btHuy.Name = "btHuy";
             this.btHuy.Size = new System.Drawing.Size(106, 32);
             this.btHuy.TabIndex = 1;
@@ -87,13 +88,15 @@ namespace car_racing_game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(476, 231);
+            this.ClientSize = new System.Drawing.Size(476, 147);
             this.Controls.Add(this.lbPlayerName);
             this.Controls.Add(this.btHuy);
             this.Controls.Add(this.btXacNhan);
             this.Controls.Add(this.txtPlayerName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ScoreForm";
-            this.Text = "ScoreForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Cố gắng hơn cho lần chơi sau nhé!";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ScoreForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -261,7 +261,7 @@ namespace car_racing_game
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             SoundPlayer soundPlayer = new SoundPlayer();
-            soundPlayer.SoundLocation = Application.StartupPath + @"\..\..\Sound\ThemeSong2.wav";
+            soundPlayer.SoundLocation = Application.StartupPath + @"\..\..\Sound\Theme.wav";
             soundPlayer.PlayLooping();
         }
 

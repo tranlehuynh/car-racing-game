@@ -60,6 +60,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormChonMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChonMap.Designer.cs">
+      <DependentUpon>FormChonMap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChonMap2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChonMap2.Designer.cs">
+      <DependentUpon>FormChonMap2.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDiemSo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +110,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChonMap.resx">
+      <DependentUpon>FormChonMap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChonMap2.resx">
+      <DependentUpon>FormChonMap2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDiemSo.resx">
       <DependentUpon>FormDiemSo.cs</DependentUpon>
