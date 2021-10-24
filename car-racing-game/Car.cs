@@ -39,16 +39,16 @@ namespace car_racing_game
                     pb.Left = bG.lane[vt + 1];
             }
         }
-        public bool vaChamXe(EnemyCar[] enemies)
+        public EnemyCar vaChamXe(EnemyCar[] enemies)
         {
             foreach (var enemy in enemies)
             {
                 if (this.pb.Bounds.IntersectsWith(enemy.pb.Bounds))
                 {
-                    return true;
+                    return enemy;
                 }
             }
-            return false;
+            return null;
         }
         public bool checkSkill(int percent)
         {

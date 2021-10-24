@@ -15,7 +15,7 @@ namespace car_racing_game
         Int64 roadMainCar = 0, roadThief = 0;
         BG backGround; //Gồm lane và vạch kẻ đường đã thiết kế sẵn
         MainCar mainCar;
-        bool mode = false, checkSkillMainCar = false, checkSkillThief = false;
+        bool mode = false, checkSkillMainCar = false, checkSkillThief = false, win = false;
         EnemyCar[] enemies; //enemies này là tập hợp của các enemyCar
         ThiefCar thief;
         System.Windows.Forms.Timer timerMain, timerThief, timerCountDown;
@@ -27,7 +27,7 @@ namespace car_racing_game
         {
             InitializeComponent();
             // Hàm BG với tham số (speed của map, mảng các vạch đứt trong map đã được thiết kế sẵn, mảng các vạch liền, mảng các toạ độ X của từng lane dựa vào toạ độ này để xác định lane cho Car)
-            backGround = new BG(5, new PictureBox[] { pbVachDut1, pbVachDut2, pbVachDut3, pbVachDut4, pbVachDut5, pbVachDut6, pbVachDut7, pbVachDut8, pbVachDut9, pbVachDut10, pbVachDut11, pbVachDut12 }
+            backGround = new BG(5, new PictureBox[] { pbVachDut1, pbVachDut2, pbVachDut3, pbVachDut5, pbVachDut6, pbVachDut8, pbVachDut9, pbVachDut10, pbVachDut11, pbVachDut12 }
             , new int[] { 112, 302, 492, 672 }); // left của từng lane
 
             // Hàm khởi tạo cần pictureBox của mainCar
@@ -83,21 +83,56 @@ namespace car_racing_game
                 roadThief += thief.speed;
 
                 // Kiểm tra đụng xe giữa mainCar và thiefCar với các enemyCar, tham số enemies là tập hợp các enemyCar
-                if (roadThief == 100000 || thief.vaChamXe(enemies) || mainCar.pb.Bounds.IntersectsWith(thief.pb.Bounds)
-                    || thief.pb.Bottom >= ClientRectangle.Bottom || thief.pb.Top <= 0)
+                if (roadThief == 100000 || thief.vaChamXe(enemies) != null || mainCar.pb.Bounds.IntersectsWith(thief.pb.Bounds)
+                    || thief.pb.Bottom >= ClientRectangle.Bottom || thief.pb.Top <= 0 || mainCar.vaChamXe(enemies) != null)
                 {
+                    if (roadThief == 100000 || mainCar.vaChamXe(enemies) != null || thief.pb.Top <= 0)
+                    {
+                        win = true;
+                    }
+                    if (mainCar.vaChamXe(enemies) != null)
+                    {
+                        mainCar.pb.Image = mainCar.vaChamXe(enemies).pb.Image = Image.FromFile(Application.StartupPath + @"\..\..\Images\boom-1.png");
+                    }
+                    if (thief.vaChamXe(enemies)!= null)
+                    {
+                        thief.pb.Image = thief.vaChamXe(enemies).pb.Image = Image.FromFile(Application.StartupPath + @"\..\..\Images\boom-1.png");
+                    }
                     timer1.Enabled = timer2.Enabled = timerMain.Enabled = timerThief.Enabled = false;
                 }
                 //Check skill
                 checkSkillThief = thief.checkSkill(progressBar1.Value);
 
             }
-            if (mainCar.vaChamXe(enemies))
+            else
             {
-                timer1.Enabled = timer2.Enabled = timerMain.Enabled = false;
+                if (mainCar.vaChamXe(enemies) != null)
+                {
+                    mainCar.pb.Image = mainCar.vaChamXe(enemies).pb.Image = Image.FromFile(Application.StartupPath + @"\..\..\Images\boom-1.png");
+                    timer1.Enabled = timer2.Enabled = timerMain.Enabled = false;
+                }
             }
             //Check skill main Car
             checkSkillMainCar = mainCar.checkSkill(progressBar2.Value);
+            if (timer1.Enabled == false)
+            {
+                if (mode)
+                {
+                    if (win == true)
+                    {
+                        startlb.Text = "WIN";
+                    }
+                    else
+                    {
+                        startlb.Text = "LOSE";
+                    }
+                }
+                else
+                {
+                    startlb.Text = "GAME OVER";
+                }
+                startlb.Visible = true;
+            }
         }
 
         protected void timer2_Tick(object sender, EventArgs e)
