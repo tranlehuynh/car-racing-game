@@ -99,6 +99,9 @@ namespace car_racing_game
                         thief.pb.Image = thief.vaChamXe(enemies).pb.Image = Image.FromFile(Application.StartupPath + @"\..\..\Images\boom-1.png");
                     }
                     timer1.Enabled = timer2.Enabled = timerMain.Enabled = timerThief.Enabled = false;
+                    ScoreForm2 f = new ScoreForm2();
+                    f.Message = win.ToString();
+                    f.Show();
                 }
                 //Check skill
                 checkSkillThief = thief.checkSkill(progressBar1.Value);
@@ -110,6 +113,9 @@ namespace car_racing_game
                 {
                     mainCar.pb.Image = mainCar.vaChamXe(enemies).pb.Image = Image.FromFile(Application.StartupPath + @"\..\..\Images\boom-1.png");
                     timer1.Enabled = timer2.Enabled = timerMain.Enabled = false;
+                    ScoreForm1 scoreForm = new ScoreForm1();
+                    scoreForm.Message = (roadMainCar / 1000).ToString();
+                    scoreForm.Show();
                 }
             }
             //Check skill main Car

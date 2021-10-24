@@ -79,33 +79,13 @@ namespace car_racing_game
                 Player newPlayer = new Player();
                 newPlayer.Name = entries[0];
                 newPlayer.Score = entries[1];
-
                 PlayerList.Add(newPlayer);
             }
-
-
-
-
-            //List<Player> PlayerList = new List<Player>();
-            //List<string> lines = File.ReadAllLines(path).ToList();
-
-            //foreach (var line in lines)
-            //{
-            //    string[] entries = line.Split(' ');
-
-            //    Player newPlayer = new Player();
-            //    newPlayer.Name = entries[0];
-            //    newPlayer.Score = entries[1];
-
-            //    PlayerList.Add(newPlayer);
-            //}
-
             PlayerList.Sort((a, b) => int.Parse(b.Score).CompareTo(int.Parse(a.Score)));
             //foreach (var person in PlayerList)
             //{
             //    Console.WriteLine($"{person.Name}{' '}{person.Score}");
             //}
-
             List<string> output = new List<string>();
             foreach (var person in PlayerList)
             {

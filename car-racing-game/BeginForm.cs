@@ -58,8 +58,8 @@ namespace car_racing_game
         }
         private void BeginForm_Load(object sender, EventArgs e)
         {
-            soundPlayer.SoundLocation = Application.StartupPath + @"\..\..\Sound\Theme.wav";
-            soundPlayer.PlayLooping();
+            //soundPlayer.SoundLocation = Application.StartupPath + @"\..\..\Sound\Theme.wav";
+            //soundPlayer.PlayLooping();
         }
         private void btMotNguoiChoi_Click(object sender, EventArgs e)
         {
@@ -69,7 +69,6 @@ namespace car_racing_game
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
         }
-
         private void btHaiNguoiChoi_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -86,7 +85,6 @@ namespace car_racing_game
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
         }
-
         private void btDiemSo_Click(object sender, EventArgs e)
         {
             FormDiemSo f = new FormDiemSo();

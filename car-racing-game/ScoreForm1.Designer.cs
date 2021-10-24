@@ -1,7 +1,7 @@
 ﻿
 namespace car_racing_game
 {
-    partial class ScoreForm2
+    partial class ScoreForm1
     {
         /// <summary>
         /// Required designer variable.
@@ -29,32 +29,29 @@ namespace car_racing_game
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScoreForm2));
             this.lbPlayerName = new System.Windows.Forms.Label();
             this.btHuy = new System.Windows.Forms.Button();
             this.btXacNhan = new System.Windows.Forms.Button();
-            this.txtXeCanhSat = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtXeCuop = new System.Windows.Forms.TextBox();
+            this.txtPlayerName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lbPlayerName
             // 
             this.lbPlayerName.AutoSize = true;
             this.lbPlayerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPlayerName.Location = new System.Drawing.Point(36, 23);
+            this.lbPlayerName.Location = new System.Drawing.Point(14, 19);
             this.lbPlayerName.Name = "lbPlayerName";
-            this.lbPlayerName.Size = new System.Drawing.Size(282, 24);
-            this.lbPlayerName.TabIndex = 0;
-            this.lbPlayerName.Text = "Nhập tên người chơi xe cảnh sát\r\n";
+            this.lbPlayerName.Size = new System.Drawing.Size(170, 24);
+            this.lbPlayerName.TabIndex = 6;
+            this.lbPlayerName.Text = "Nhập tên của bạn: ";
             // 
             // btHuy
             // 
             this.btHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btHuy.Location = new System.Drawing.Point(294, 209);
+            this.btHuy.Location = new System.Drawing.Point(269, 96);
             this.btHuy.Name = "btHuy";
             this.btHuy.Size = new System.Drawing.Size(106, 32);
-            this.btHuy.TabIndex = 5;
+            this.btHuy.TabIndex = 4;
             this.btHuy.Text = "Hủy";
             this.btHuy.UseVisualStyleBackColor = true;
             this.btHuy.Click += new System.EventHandler(this.btHuy_Click);
@@ -62,58 +59,36 @@ namespace car_racing_game
             // btXacNhan
             // 
             this.btXacNhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btXacNhan.Location = new System.Drawing.Point(103, 209);
+            this.btXacNhan.Location = new System.Drawing.Point(92, 96);
             this.btXacNhan.Name = "btXacNhan";
             this.btXacNhan.Size = new System.Drawing.Size(106, 32);
-            this.btXacNhan.TabIndex = 4;
+            this.btXacNhan.TabIndex = 5;
             this.btXacNhan.Text = "Xác nhận";
             this.btXacNhan.UseVisualStyleBackColor = true;
             this.btXacNhan.Click += new System.EventHandler(this.btXacNhan_Click);
             // 
-            // txtXeCanhSat
+            // txtPlayerName
             // 
-            this.txtXeCanhSat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtXeCanhSat.Location = new System.Drawing.Point(40, 65);
-            this.txtXeCanhSat.Name = "txtXeCanhSat";
-            this.txtXeCanhSat.Size = new System.Drawing.Size(445, 28);
-            this.txtXeCanhSat.TabIndex = 1;
-            this.txtXeCanhSat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtXeCanhSat_KeyPress);
+            this.txtPlayerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPlayerName.Location = new System.Drawing.Point(18, 46);
+            this.txtPlayerName.Name = "txtPlayerName";
+            this.txtPlayerName.Size = new System.Drawing.Size(445, 28);
+            this.txtPlayerName.TabIndex = 3;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(36, 106);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(255, 24);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Nhập tên người chơi xe cướp";
-            // 
-            // txtXeCuop
-            // 
-            this.txtXeCuop.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtXeCuop.Location = new System.Drawing.Point(40, 151);
-            this.txtXeCuop.Name = "txtXeCuop";
-            this.txtXeCuop.Size = new System.Drawing.Size(445, 28);
-            this.txtXeCuop.TabIndex = 3;
-            this.txtXeCuop.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtXeCuop_KeyPress);
-            // 
-            // ScoreForm2
+            // ScoreForm1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(532, 269);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(476, 147);
             this.Controls.Add(this.lbPlayerName);
             this.Controls.Add(this.btHuy);
             this.Controls.Add(this.btXacNhan);
-            this.Controls.Add(this.txtXeCuop);
-            this.Controls.Add(this.txtXeCanhSat);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "ScoreForm2";
+            this.Controls.Add(this.txtPlayerName);
+            this.Name = "ScoreForm1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Nhập tên người chơi";
-            this.Load += new System.EventHandler(this.ScoreForm2_Load);
+            this.Text = "ScoreForm1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ScoreForm1_FormClosing);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ScoreForm1_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -124,8 +99,6 @@ namespace car_racing_game
         private System.Windows.Forms.Label lbPlayerName;
         private System.Windows.Forms.Button btHuy;
         private System.Windows.Forms.Button btXacNhan;
-        private System.Windows.Forms.TextBox txtXeCanhSat;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtXeCuop;
+        private System.Windows.Forms.TextBox txtPlayerName;
     }
 }

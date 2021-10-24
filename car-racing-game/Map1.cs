@@ -58,22 +58,6 @@ namespace car_racing_game
             EnemyCar enemyCar5 = new EnemyCar(ptbEnemyCar5, backGround.speed, backGround);
             enemies = new EnemyCar[] { enemyCar1, enemyCar2, enemyCar3, enemyCar4, enemyCar5 }; //Thêm các enemyCar vào tập hợp enemies để dễ kiểm soát
         }
-
-        private void Map1_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            //Thread thread = new Thread(openBeginForm);
-            //thread.SetApartmentState(ApartmentState.STA);
-            //thread.Start();
-            ////Music on
-            ////SoundPlayer soundPlayer = new SoundPlayer();
-            ////soundPlayer.SoundLocation = Application.StartupPath + @"\..\..\Sound\Theme.wav";
-            ////soundPlayer.PlayLooping();
-        }
-        public void openBeginForm()
-        {
-            Application.Run(new BeginForm());
-        }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             //Tính quãng đường đi được, hiện bên tay trái form
@@ -107,16 +91,22 @@ namespace car_racing_game
                     if (mainCar.vaChamXe(enemies) != null)
                     {
                         mainCar.pb.Image = mainCar.vaChamXe(enemies).pb.Image = Image.FromFile(Application.StartupPath + @"\..\..\Images\boom-1.png");
+                        //ScoreForm1 f = new ScoreForm1();
+                        //f.Message = pointlb.Text;
+                        //f.Show();
                     }
                     if (thief.vaChamXe(enemies) != null)
                     {
                         thief.pb.Image = thief.vaChamXe(enemies).pb.Image = Image.FromFile(Application.StartupPath + @"\..\..\Images\boom-1.png");
                     }
                     timer1.Enabled = timer2.Enabled = timerMain.Enabled = timerThief.Enabled = false;
+                    ScoreForm2 f = new ScoreForm2();
+                    f.Message = win.ToString();
+                    f.Show();
                 }
                 //Check skill
                 checkSkillThief = thief.checkSkill(progressBar1.Value);
-
+                startlb.Visible = true;
             }
             else
             {
@@ -124,6 +114,9 @@ namespace car_racing_game
                 {
                     mainCar.pb.Image = mainCar.vaChamXe(enemies).pb.Image = Image.FromFile(Application.StartupPath + @"\..\..\Images\boom-1.png");
                     timer1.Enabled = timer2.Enabled = timerMain.Enabled = false;
+                    ScoreForm1 scoreForm = new ScoreForm1();
+                    scoreForm.Message = (roadMainCar/1000).ToString();
+                    scoreForm.Show();
                 }
             }
             //Check skill main Car
@@ -145,7 +138,6 @@ namespace car_racing_game
                 {
                     startlb.Text = "GAME OVER";
                 }
-                startlb.Visible = true;
             }
         }
 
