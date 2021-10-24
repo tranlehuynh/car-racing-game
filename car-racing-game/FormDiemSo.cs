@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Media;
+using System.Threading;
 
 namespace car_racing_game
 {
@@ -34,6 +36,9 @@ namespace car_racing_game
             dataGridView1.Columns[0].Resizable = DataGridViewTriState.False;
             dataGridView1.Columns[1].Resizable = DataGridViewTriState.False;
 
+            //dataGridView1.Rows[0].Resizable = DataGridViewTriState.False;
+            //dataGridView1.Rows[1].Resizable = DataGridViewTriState.False;
+
             dataGridView1.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
@@ -47,6 +52,7 @@ namespace car_racing_game
             }
 
             string path = Application.StartupPath + @"\..\..\1PlayerScore.txt";
+
             try
             {
                 using (StreamReader streamReader = new StreamReader(path))
@@ -66,8 +72,12 @@ namespace car_racing_game
             }
             catch (IOException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Hien tai chua co nguoi choi nao ca");
             }
+        }
+
+        private void FormDiemSo_FormClosed(object sender, FormClosedEventArgs e)
+        {
         }
     }
 }

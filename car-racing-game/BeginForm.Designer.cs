@@ -72,7 +72,7 @@ namespace car_racing_game
             this.btDiemSo.Location = new System.Drawing.Point(232, 278);
             this.btDiemSo.Name = "btDiemSo";
             this.btDiemSo.Size = new System.Drawing.Size(372, 49);
-            this.btDiemSo.TabIndex = 2;
+            this.btDiemSo.TabIndex = 3;
             this.btDiemSo.Text = "Điểm số ";
             this.btDiemSo.UseVisualStyleBackColor = true;
             this.btDiemSo.Click += new System.EventHandler(this.btDiemSo_Click);
@@ -86,7 +86,7 @@ namespace car_racing_game
             this.btHuongDan.Location = new System.Drawing.Point(232, 333);
             this.btHuongDan.Name = "btHuongDan";
             this.btHuongDan.Size = new System.Drawing.Size(372, 49);
-            this.btHuongDan.TabIndex = 3;
+            this.btHuongDan.TabIndex = 4;
             this.btHuongDan.Text = "Hướng dẫn";
             this.btHuongDan.UseVisualStyleBackColor = true;
             this.btHuongDan.Click += new System.EventHandler(this.btHuongDan_Click);
@@ -100,7 +100,7 @@ namespace car_racing_game
             this.btBaNguoiChoi.Location = new System.Drawing.Point(232, 223);
             this.btBaNguoiChoi.Name = "btBaNguoiChoi";
             this.btBaNguoiChoi.Size = new System.Drawing.Size(372, 49);
-            this.btBaNguoiChoi.TabIndex = 1;
+            this.btBaNguoiChoi.TabIndex = 2;
             this.btBaNguoiChoi.Text = "Chế độ chơi thứ ba";
             this.btBaNguoiChoi.UseVisualStyleBackColor = true;
             this.btBaNguoiChoi.Click += new System.EventHandler(this.btBaNguoiChoi_Click);

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
+using System.Threading;
 
 namespace car_racing_game
 {
@@ -199,10 +200,8 @@ namespace car_racing_game
         void lose()
         {
             gameOverSound();
-            //int superman = coinTemp;
             timer1.Enabled = false;
             lbGameOver.Visible = true;
-
             //Đưa số coin ăn được qua ScoreForm.cs
             ScoreForm scoreForm = new ScoreForm();
             scoreForm.Message = coinTemp.ToString();
@@ -231,7 +230,6 @@ namespace car_racing_game
                 lose();
             }
         }
-
         void gameOverSound()
         {
             SoundPlayer soundPlayer = new SoundPlayer();
@@ -244,7 +242,6 @@ namespace car_racing_game
             soundPlayer.SoundLocation = Application.StartupPath + @"\..\..\Sound\CoinSound.wav";
             soundPlayer.Play();
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             timer1.Enabled = false;
@@ -260,11 +257,18 @@ namespace car_racing_game
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
+            Thread thread = new Thread(openBeginForm);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+            //Music on
             SoundPlayer soundPlayer = new SoundPlayer();
             soundPlayer.SoundLocation = Application.StartupPath + @"\..\..\Sound\Theme.wav";
             soundPlayer.PlayLooping();
         }
-
+        public void openBeginForm()
+        {
+            Application.Run(new BeginForm());
+        }
         private void timer2_Tick(object sender, EventArgs e)
         {
             int superTemp; 

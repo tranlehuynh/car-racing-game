@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
+using System.Threading;
 
 namespace car_racing_game
 {
@@ -55,6 +57,21 @@ namespace car_racing_game
             EnemyCar enemyCar4 = new EnemyCar(ptbEnemyCar4, backGround.speed, backGround);
             EnemyCar enemyCar5 = new EnemyCar(ptbEnemyCar5, backGround.speed, backGround);
             enemies = new EnemyCar[] { enemyCar1, enemyCar2, enemyCar3, enemyCar4, enemyCar5 }; //Thêm các enemyCar vào tập hợp enemies để dễ kiểm soát
+        }
+
+        private void Map1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //Thread thread = new Thread(openBeginForm);
+            //thread.SetApartmentState(ApartmentState.STA);
+            //thread.Start();
+            ////Music on
+            ////SoundPlayer soundPlayer = new SoundPlayer();
+            ////soundPlayer.SoundLocation = Application.StartupPath + @"\..\..\Sound\Theme.wav";
+            ////soundPlayer.PlayLooping();
+        }
+        public void openBeginForm()
+        {
+            Application.Run(new BeginForm());
         }
 
         private void timer1_Tick(object sender, EventArgs e)

@@ -44,6 +44,8 @@ namespace car_racing_game
             this.btMap1.Text = "Bản đồ một";
             this.btMap1.UseVisualStyleBackColor = true;
             this.btMap1.Click += new System.EventHandler(this.btMap1_Click);
+            this.btMap1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btMap1_KeyDown);
+            this.btMap1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btMap1_MouseMove);
             // 
             // btMap2
             // 
@@ -51,10 +53,12 @@ namespace car_racing_game
             this.btMap2.Location = new System.Drawing.Point(109, 112);
             this.btMap2.Name = "btMap2";
             this.btMap2.Size = new System.Drawing.Size(234, 49);
-            this.btMap2.TabIndex = 0;
+            this.btMap2.TabIndex = 1;
             this.btMap2.Text = "Bản đồ hai";
             this.btMap2.UseVisualStyleBackColor = true;
             this.btMap2.Click += new System.EventHandler(this.btMap2_Click);
+            this.btMap2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btMap2_KeyDown);
+            this.btMap2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btMap2_MouseMove);
             // 
             // FormChonMap
             // 
@@ -67,6 +71,7 @@ namespace car_racing_game
             this.Name = "FormChonMap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hãy chọn bản đồ bạn thích!";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormChonMap_FormClosed);
             this.ResumeLayout(false);
 
         }
