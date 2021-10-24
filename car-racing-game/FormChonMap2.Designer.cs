@@ -70,7 +70,7 @@ namespace car_racing_game
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormChonMap2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormChonMap2";
+            this.Text = "Chọn bản đồ bạn thích!";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormChonMap2_FormClosed);
             this.ResumeLayout(false);
 

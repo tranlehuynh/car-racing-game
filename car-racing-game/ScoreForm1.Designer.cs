@@ -29,6 +29,7 @@ namespace car_racing_game
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScoreForm1));
             this.lbPlayerName = new System.Windows.Forms.Label();
             this.btHuy = new System.Windows.Forms.Button();
             this.btXacNhan = new System.Windows.Forms.Button();
@@ -84,9 +85,10 @@ namespace car_racing_game
             this.Controls.Add(this.btHuy);
             this.Controls.Add(this.btXacNhan);
             this.Controls.Add(this.txtPlayerName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ScoreForm1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ScoreForm1";
+            this.Text = "Hãy nhập tên của bạn!";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ScoreForm1_FormClosing);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ScoreForm1_KeyPress);
             this.ResumeLayout(false);
