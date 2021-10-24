@@ -20,7 +20,7 @@ namespace car_racing_game
     {
         public MainCar(System.Windows.Forms.PictureBox pictureBox, int speed, System.Drawing.Rectangle rectangle, BG bG) : base(pictureBox, speed)
         {
-            pb.Top = rectangle.Bottom - 3 * pb.Height / 2; // gán top cho mainCar nằm dưới cùng
+            pb.Top = rectangle.Bottom - pb.Height * 5 / 4; // gán top cho mainCar nằm dưới cùng
             pb.Left = bG.lane[bG.lane.Length / 2]; // Khởi tạo xe tại lane giữa
         }
 
@@ -118,7 +118,7 @@ namespace car_racing_game
 
         public static void buffSpeed(EnemyCar[] enemies, int speedbuff)
         {
-            foreach(EnemyCar enemy in enemies)
+            foreach (EnemyCar enemy in enemies)
             {
                 enemy.speed += speedbuff;
             }
@@ -164,7 +164,7 @@ namespace car_racing_game
         }
         public static void buffSpeedEnenemy(EnemyCar[] enemies, int speedbuff)
         {
-            foreach(EnemyCar enemy in enemies)
+            foreach (EnemyCar enemy in enemies)
             {
                 enemy.speed += speedbuff;
             }
@@ -174,7 +174,7 @@ namespace car_racing_game
     {
         public ThiefCar(System.Windows.Forms.PictureBox pictureBox, System.Drawing.Rectangle rectangle, MainCar mainCar, int speed, BG bG) : base(pictureBox, speed, rectangle, bG)
         {
-            pb.Top = mainCar.pb.Top - rectangle.Height / 10 * 4;
+            pb.Top = mainCar.pb.Top - pb.Height * 2;
         }
         public void run(BG background)
         {

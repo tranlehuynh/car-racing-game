@@ -17,7 +17,7 @@ namespace car_racing_game
         {
             InitializeComponent();
         }
-        string path = Application.StartupPath + @"\1PlayerScore.txt";
+        string path = Application.StartupPath + @"\..\..\1PlayerScore.txt";
         string _message;
         public string Message
         {

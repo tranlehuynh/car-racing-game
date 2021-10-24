@@ -46,7 +46,7 @@ namespace car_racing_game
                 col.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
 
-            string path = Application.StartupPath + @"\1PlayerScore.txt";
+            string path = Application.StartupPath + @"\..\..\1PlayerScore.txt";
             try
             {
                 using (StreamReader streamReader = new StreamReader(path))

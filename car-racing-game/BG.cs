@@ -23,7 +23,7 @@ namespace car_racing_game
             pb.Top += speed;
             if (pb.Top >= clientRec.Bottom)
             {
-                pb.Top = clientRec.Top - pb.Height;
+                pb.Top = 0 - pb.Height;
             }
         }
         public void loopmove(System.Drawing.Rectangle clientRec)

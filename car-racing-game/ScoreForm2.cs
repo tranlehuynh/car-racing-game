@@ -16,7 +16,7 @@ namespace car_racing_game
         {
             InitializeComponent();
         }
-        string path = Application.StartupPath + @"\2PlayerScore.txt";
+        string path = Application.StartupPath + @"\..\..\2PlayerScore.txt";
 
         private void ScoreForm2_Load(object sender, EventArgs e)
         {
