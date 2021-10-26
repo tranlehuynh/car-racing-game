@@ -1,5 +1,11 @@
+Huy 39
 a 29
+Huy 14
+d 13
+Huy 11
+Huy 7
 b 5
+Huy 3
 Huy 2
 b 0
 a 0

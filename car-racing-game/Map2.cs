@@ -20,11 +20,9 @@ namespace car_racing_game
         EnemyCar[] enemies; //enemies này là tập hợp của các enemyCar
         ThiefCar thief;
         System.Windows.Forms.Timer timerMain, timerThief, timerCountDown;
-        int buffMain = 10, buffThief = 10;
-        int speedbuff, speedmap;
+        int buffMain = 10, buffThief = 10, speedbuff, speedmap, time = 0;
         SoundPlayer soundPlayer;
-
-        int time = 0;
+        EnemyCar car;
 
         public Map2(bool mode)
         {
@@ -55,8 +53,6 @@ namespace car_racing_game
                 //Khoi tao thief car
                 thief = new ThiefCar(thiefCar, ClientRectangle, mainCar, backGround.speed, backGround);
             }
-
-            soundPlayer = new SoundPlayer();
             // Them pictureBox cua cac enemyCar vao mang enemies
             enemies = new EnemyCar[] { new EnemyCar(pbEnemyCar1, backGround.speed, backGround),
                 new EnemyCar(pbEnemyCar2, backGround.speed, backGround),
@@ -72,12 +68,17 @@ namespace car_racing_game
             //1000 có thể thay đổi //Tính điểm theo cơ chế road = 1000 thì được 1 điểm
             pointlb.Text = string.Format("Point: {0}", roadMainCar / 1000);
 
-            // Hàm loopmove dùng để di chuyển các vạch đứt trong vạch kẻ đường, vạch kẻ đường đã được thêm vào bằng hàm khởi tạo
-            backGround.loopmove(ClientRectangle);
+            // Di chuyển các vạch đứt trong vạch kẻ đường, vạch kẻ đường đã được thêm vào bằng hàm khởi tạo
+            foreach (var item in backGround.VachDut)
+            {
+                backGround.move(item, ClientRectangle);
+            }
 
             //Di chuyen enemyCar
-            EnemyCar.loopmove(ClientRectangle, backGround, enemies);
-
+            foreach (EnemyCar enemyCar in enemies)
+            {
+                enemyCar.move(ClientRectangle, backGround, enemies);
+            }
             //Xet va cham
             EnemyCar.EnemyCarVsEnemyCar(enemies); // Kiểm tra xem các enemyCar có đụng trúng nhau không, nếu có thì hãm speed của enemyCar lại
             if (mode)
@@ -85,34 +86,42 @@ namespace car_racing_game
                 //
                 thief.run(backGround);
                 roadThief += thief.speed;
-
-                // Kiểm tra đụng xe giữa mainCar và thiefCar với các enemyCar, tham số enemies là tập hợp các enemyCar
-                if (roadThief == 100000 || thief.vaChamXe(enemies) != null || mainCar.pb.Bounds.IntersectsWith(thief.pb.Bounds)
-                    || thief.pb.Bottom >= ClientRectangle.Bottom || thief.pb.Top <= 0 || mainCar.vaChamXe(enemies) != null)
+                if (roadThief == 100000 || thief.pb.Top <= 0)
                 {
-                    if (roadThief == 100000 || mainCar.vaChamXe(enemies) != null || thief.pb.Top <= 0)
-                    {
-                        win = true;
-                    }
-                    if (mainCar.vaChamXe(enemies) != null)
-                    {
-                        mainCar.pb.Image = mainCar.vaChamXe(enemies).pb.Image = Image.FromFile(Application.StartupPath + @"\..\..\Images\boom-1.png");
-                    }
-                    if (thief.vaChamXe(enemies)!= null)
-                    {
-                        thief.pb.Image = thief.vaChamXe(enemies).pb.Image = Image.FromFile(Application.StartupPath + @"\..\..\Images\boom-1.png");
-                    }
+                    win = true;
                     timer1.Enabled = timer2.Enabled = timerMain.Enabled = timerThief.Enabled = false;
                 }
-                //Check skill
-                checkSkillThief = thief.checkSkill(progressBar1.Value);
-
+                else if (thief.pb.Bottom >= ClientRectangle.Bottom)
+                {
+                    timer1.Enabled = timer2.Enabled = timerMain.Enabled = timerThief.Enabled = false;
+                }
+                else if (mainCar.pb.Bounds.IntersectsWith(thief.pb.Bounds))
+                {
+                    thief.pb.Image = mainCar.pb.Image = Image.FromFile(Application.StartupPath + @"\..\..\Images\boom-1.png");
+                    timer1.Enabled = timer2.Enabled = timerMain.Enabled = timerThief.Enabled = false;
+                }
+                else if ((car = thief.vaChamXe(enemies)) != null)
+                {
+                    thief.pb.Image = car.pb.Image = Image.FromFile(Application.StartupPath + @"\..\..\Images\boom-1.png");
+                    timer1.Enabled = timer2.Enabled = timerMain.Enabled = timerThief.Enabled = false;
+                }
+                else if ((car = mainCar.vaChamXe(enemies)) != null)
+                {
+                    win = true;
+                    mainCar.pb.Image = car.pb.Image = Image.FromFile(Application.StartupPath + @"\..\..\Images\boom-1.png");
+                    timer1.Enabled = timer2.Enabled = timerMain.Enabled = timerThief.Enabled = false;
+                }
+                else
+                {
+                    //Check skill
+                    checkSkillThief = thief.checkSkill(progressBar1.Value);
+                }
             }
             else
             {
-                if (mainCar.vaChamXe(enemies) != null)
+                if ((car = mainCar.vaChamXe(enemies)) != null)
                 {
-                    mainCar.pb.Image = mainCar.vaChamXe(enemies).pb.Image = Image.FromFile(Application.StartupPath + @"\..\..\Images\boom-1.png");
+                    mainCar.pb.Image = car.pb.Image = Image.FromFile(Application.StartupPath + @"\..\..\Images\boom-1.png");
                     timer1.Enabled = timer2.Enabled = timerMain.Enabled = false;
                 }
             }
@@ -207,6 +216,7 @@ namespace car_racing_game
                 progressBar1.Visible = progressBar1.Enabled = false;
             }
             //Chay timer count down
+            soundPlayer = new SoundPlayer();
             soundPlayer.SoundLocation = Application.StartupPath + @"/../../Sound/start.wav";
             soundPlayer.Play();
             timerCountDown.Start();
