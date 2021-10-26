@@ -103,9 +103,6 @@ namespace car_racing_game
                         thief.pb.Image = thief.vaChamXe(enemies).pb.Image = Image.FromFile(Application.StartupPath + @"\..\..\Images\boom-1.png");
                     }
                     timer1.Enabled = timer2.Enabled = timerMain.Enabled = timerThief.Enabled = false;
-                    ScoreForm2 f = new ScoreForm2();
-                    f.Message = win.ToString();
-                    f.ShowDialog();
                 }
                 //Check skill
                 checkSkillThief = thief.checkSkill(progressBar1.Value);
@@ -117,9 +114,6 @@ namespace car_racing_game
                 {
                     mainCar.pb.Image = mainCar.vaChamXe(enemies).pb.Image = Image.FromFile(Application.StartupPath + @"\..\..\Images\boom-1.png");
                     timer1.Enabled = timer2.Enabled = timerMain.Enabled = false;
-                    ScoreForm1 scoreForm = new ScoreForm1();
-                    scoreForm.Message = (roadMainCar / 1000).ToString();
-                    scoreForm.ShowDialog();
                 }
             }
             //Check skill main Car
@@ -140,12 +134,18 @@ namespace car_racing_game
                         startlb.Text = "LOSE";
                         soundPlayer.Play();
                     }
+                    ScoreForm2 f = new ScoreForm2();
+                    f.Message = win.ToString();
+                    f.ShowDialog();
                 }
                 else
                 {
                     soundPlayer.SoundLocation = Application.StartupPath + @"/../../Sound/GameOverSound.wav";
                     startlb.Text = "GAME OVER";
                     soundPlayer.Play();
+                    ScoreForm1 scoreForm = new ScoreForm1();
+                    scoreForm.Message = (roadMainCar / 1000).ToString();
+                    scoreForm.ShowDialog();
                 }
                 MessageBox.Show("Bạn vui lòng đóng màn chơi để quay về màn hình bắt đầu nhé");
             }
