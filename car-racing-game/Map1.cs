@@ -24,6 +24,7 @@ namespace car_racing_game
         int buffMain = 10, buffThief = 10;
         int speedbuff, speedmap;
         int time = 0;
+        SoundPlayer soundPlayer;
         public Map1(bool mode)
         {
             InitializeComponent();
@@ -50,7 +51,7 @@ namespace car_racing_game
                 //Khoi tao thief car
                 thief = new ThiefCar(thiefCar, ClientRectangle, mainCar, backGround.speed, backGround);
             }
-
+            soundPlayer = new SoundPlayer();
             EnemyCar enemyCar1 = new EnemyCar(ptbEnemyCar1, backGround.speed, backGround); // EnemyCar cần pictureBox của enemyCar, speed của map và đối tượng backGround (hiện tại trong code đang là backGround thiết kế với 4 lane)
             EnemyCar enemyCar2 = new EnemyCar(ptbEnemyCar2, backGround.speed, backGround);
             EnemyCar enemyCar3 = new EnemyCar(ptbEnemyCar3, backGround.speed, backGround);
@@ -91,18 +92,12 @@ namespace car_racing_game
                     if (mainCar.vaChamXe(enemies) != null)
                     {
                         mainCar.pb.Image = mainCar.vaChamXe(enemies).pb.Image = Image.FromFile(Application.StartupPath + @"\..\..\Images\boom-1.png");
-                        //ScoreForm1 f = new ScoreForm1();
-                        //f.Message = pointlb.Text;
-                        //f.Show();
                     }
                     if (thief.vaChamXe(enemies) != null)
                     {
                         thief.pb.Image = thief.vaChamXe(enemies).pb.Image = Image.FromFile(Application.StartupPath + @"\..\..\Images\boom-1.png");
                     }
                     timer1.Enabled = timer2.Enabled = timerMain.Enabled = timerThief.Enabled = false;
-                    ScoreForm2 f = new ScoreForm2();
-                    f.Message = win.ToString();
-                    f.Show();
                 }
                 //Check skill
                 checkSkillThief = thief.checkSkill(progressBar1.Value);
@@ -114,9 +109,6 @@ namespace car_racing_game
                 {
                     mainCar.pb.Image = mainCar.vaChamXe(enemies).pb.Image = Image.FromFile(Application.StartupPath + @"\..\..\Images\boom-1.png");
                     timer1.Enabled = timer2.Enabled = timerMain.Enabled = false;
-                    ScoreForm1 scoreForm = new ScoreForm1();
-                    scoreForm.Message = (roadMainCar/1000).ToString();
-                    scoreForm.Show();
                 }
             }
             //Check skill main Car
@@ -127,17 +119,30 @@ namespace car_racing_game
                 {
                     if (win == true)
                     {
+                        soundPlayer.SoundLocation = Application.StartupPath + @"/../../Sound/win.wav";
+                        soundPlayer.Play();
                         startlb.Text = "WIN";
                     }
                     else
                     {
+                        soundPlayer.SoundLocation = Application.StartupPath + @"/../../Sound/GameOverSound.wav";
                         startlb.Text = "LOSE";
+                        soundPlayer.Play();
                     }
+                    ScoreForm2 f = new ScoreForm2();
+                    f.Message = win.ToString();
+                    f.ShowDialog();
                 }
                 else
                 {
+                    soundPlayer.SoundLocation = Application.StartupPath + @"/../../Sound/GameOverSound.wav";
                     startlb.Text = "GAME OVER";
+                    soundPlayer.Play();
+                    ScoreForm1 scoreForm = new ScoreForm1();
+                    scoreForm.Message = (roadMainCar / 1000).ToString();
+                    scoreForm.ShowDialog();
                 }
+                MessageBox.Show("Bạn vui lòng đóng màn chơi để quay về màn hình bắt đầu nhé");
             }
         }
 
@@ -197,6 +202,8 @@ namespace car_racing_game
                 progressBar1.Visible = progressBar1.Enabled = false;
             }
             //Chay timer count down
+            soundPlayer.SoundLocation = Application.StartupPath + @"/../../Sound/start.wav";
+            soundPlayer.Play();
             timerCountDown.Start();
         }
 
@@ -204,6 +211,7 @@ namespace car_racing_game
         {
             if (timer1.Enabled)
             {
+                soundPlayer.SoundLocation = Application.StartupPath + @"/../../Sound/buff.wav";
                 if (e.KeyCode == Keys.A)
                 {
                     mainCar.move(backGround, true); // tham số thứ 2 = true nếu xe rẽ trái
@@ -224,6 +232,7 @@ namespace car_racing_game
                         {
                             backGround.speed += speedbuff;
                         }
+                        soundPlayer.Play();
                         EnemyCar.buffSpeed(enemies, speedbuff);
                         timerMain.Start();
                     }
@@ -257,6 +266,7 @@ namespace car_racing_game
                         if (checkSkillThief)
                         {
                             thief.speed = speedbuff + speedmap;
+                            soundPlayer.Play();
                             timerThief.Start();
                         }
                     }
@@ -265,6 +275,7 @@ namespace car_racing_game
                         if (checkSkillMainCar)
                         {
                             backGround.speed += speedbuff;
+                            soundPlayer.Play();
                             EnemyCar.buffSpeed(enemies, speedbuff);
                             timerMain.Start();
                         }

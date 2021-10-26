@@ -58,8 +58,8 @@ namespace car_racing_game
         }
         private void BeginForm_Load(object sender, EventArgs e)
         {
-            //soundPlayer.SoundLocation = Application.StartupPath + @"\..\..\Sound\Theme.wav";
-            //soundPlayer.PlayLooping();
+            soundPlayer.SoundLocation = Application.StartupPath + @"\..\..\Sound\Theme.wav";
+            soundPlayer.PlayLooping();
         }
         private void btMotNguoiChoi_Click(object sender, EventArgs e)
         {

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Media;
 using System.Windows.Forms;
 
 namespace car_racing_game
@@ -21,6 +22,8 @@ namespace car_racing_game
         System.Windows.Forms.Timer timerMain, timerThief, timerCountDown;
         int buffMain = 10, buffThief = 10;
         int speedbuff, speedmap;
+        SoundPlayer soundPlayer;
+
         int time = 0;
 
         public Map2(bool mode)
@@ -53,6 +56,7 @@ namespace car_racing_game
                 thief = new ThiefCar(thiefCar, ClientRectangle, mainCar, backGround.speed, backGround);
             }
 
+            soundPlayer = new SoundPlayer();
             // Them pictureBox cua cac enemyCar vao mang enemies
             enemies = new EnemyCar[] { new EnemyCar(pbEnemyCar1, backGround.speed, backGround),
                 new EnemyCar(pbEnemyCar2, backGround.speed, backGround),
@@ -101,7 +105,7 @@ namespace car_racing_game
                     timer1.Enabled = timer2.Enabled = timerMain.Enabled = timerThief.Enabled = false;
                     ScoreForm2 f = new ScoreForm2();
                     f.Message = win.ToString();
-                    f.Show();
+                    f.ShowDialog();
                 }
                 //Check skill
                 checkSkillThief = thief.checkSkill(progressBar1.Value);
@@ -115,7 +119,7 @@ namespace car_racing_game
                     timer1.Enabled = timer2.Enabled = timerMain.Enabled = false;
                     ScoreForm1 scoreForm = new ScoreForm1();
                     scoreForm.Message = (roadMainCar / 1000).ToString();
-                    scoreForm.Show();
+                    scoreForm.ShowDialog();
                 }
             }
             //Check skill main Car
@@ -126,18 +130,24 @@ namespace car_racing_game
                 {
                     if (win == true)
                     {
+                        soundPlayer.SoundLocation = Application.StartupPath + @"/../../Sound/win.wav";
+                        soundPlayer.Play();
                         startlb.Text = "WIN";
                     }
                     else
                     {
+                        soundPlayer.SoundLocation = Application.StartupPath + @"/../../Sound/GameOverSound.wav";
                         startlb.Text = "LOSE";
+                        soundPlayer.Play();
                     }
                 }
                 else
                 {
+                    soundPlayer.SoundLocation = Application.StartupPath + @"/../../Sound/GameOverSound.wav";
                     startlb.Text = "GAME OVER";
+                    soundPlayer.Play();
                 }
-                startlb.Visible = true;
+                MessageBox.Show("Bạn vui lòng đóng màn chơi để quay về màn hình bắt đầu nhé");
             }
         }
 
@@ -197,6 +207,8 @@ namespace car_racing_game
                 progressBar1.Visible = progressBar1.Enabled = false;
             }
             //Chay timer count down
+            soundPlayer.SoundLocation = Application.StartupPath + @"/../../Sound/start.wav";
+            soundPlayer.Play();
             timerCountDown.Start();
         }
 
@@ -204,6 +216,7 @@ namespace car_racing_game
         {
             if (timer1.Enabled)
             {
+                soundPlayer.SoundLocation = Application.StartupPath + @"/../../Sound/buff.wav";
                 if (e.KeyCode == Keys.A)
                 {
                     mainCar.move(backGround, true); // tham số thứ 2 = true nếu xe rẽ trái
@@ -224,6 +237,7 @@ namespace car_racing_game
                         {
                             backGround.speed += speedbuff;
                         }
+                        soundPlayer.Play();
                         EnemyCar.buffSpeed(enemies, speedbuff);
                         timerMain.Start();
                     }
@@ -257,6 +271,7 @@ namespace car_racing_game
                         if (checkSkillThief)
                         {
                             thief.speed = speedbuff + speedmap;
+                            soundPlayer.Play();
                             timerThief.Start();
                         }
                     }
@@ -265,6 +280,7 @@ namespace car_racing_game
                         if (checkSkillMainCar)
                         {
                             backGround.speed += speedbuff;
+                            soundPlayer.Play();
                             EnemyCar.buffSpeed(enemies, speedbuff);
                             timerMain.Start();
                         }
